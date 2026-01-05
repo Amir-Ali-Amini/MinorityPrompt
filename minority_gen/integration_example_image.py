@@ -239,7 +239,14 @@ def example_detailed(n_samples=5):
     }
 
 
-def sharif_task(n_samples=5, use_lightning=False):
+def sharif_task(
+    n_samples=5,
+    use_lightning=False,
+    p_opt_iter=10,
+    p_opt_lr=0.01,
+    t_lo=0.0,
+    model="sdxl",
+):
     """
     Detailed example with custom configuration and saving results.
     """
@@ -278,15 +285,16 @@ def sharif_task(n_samples=5, use_lightning=False):
             NFE=4,
             cfg_guidance=1.0,
         )
-    else:
-        # model_config = ModelConfig(
-        #     model="sd15",
-        #     method="ddim",
-        #     NFE=50,
-        #     cfg_guidance=7.5,
-        # )
+    elif model.lower() == "sdxl":
         model_config = ModelConfig(
             model="sdxl",
+            method="ddim",
+            NFE=50,
+            cfg_guidance=7.5,
+        )
+    else:
+        model_config = ModelConfig(
+            model=model,
             method="ddim",
             NFE=50,
             cfg_guidance=7.5,
@@ -294,9 +302,9 @@ def sharif_task(n_samples=5, use_lightning=False):
 
     popt_config = PromptOptConfig(
         enabled=True,
-        p_opt_iter=10,
-        p_opt_lr=0.01,
-        t_lo=0.0,
+        p_opt_iter=p_opt_iter,
+        p_opt_lr=p_opt_lr,
+        t_lo=t_lo,
         dynamic_pr=True,
         init_type="default",
     )
