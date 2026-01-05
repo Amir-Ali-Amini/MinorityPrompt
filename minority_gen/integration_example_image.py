@@ -280,11 +280,17 @@ def sharif_task(n_samples=5, use_lightning=False):
         )
     else:
         model_config = ModelConfig(
-            model="sdxl",
+            model="sd15",
             method="ddim",
-            NFE=20,
+            NFE=50,
             cfg_guidance=7.5,
         )
+        # model_config = ModelConfig(
+        #     model="sdxl",
+        #     method="ddim",
+        #     NFE=50,
+        #     cfg_guidance=7.5,
+        # )
 
     popt_config = PromptOptConfig(
         enabled=True,
