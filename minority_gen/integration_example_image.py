@@ -265,7 +265,9 @@ def sharif_task(
 
     # === Setup output directories with timestamp ===
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_dir = Path(f"outputs/{timestamp}")
+    output_dir = Path(
+        f"outputs/{timestamp}_{model}{'_lightning_' if use_lightning else ''} "
+    )
     baseline_dir = output_dir / "baseline"
     minority_dir = output_dir / "minority"
     modified_dir = output_dir / "modified"
@@ -395,6 +397,14 @@ def sharif_task(
     print("BASELINE vs MODIFIED")
     print("=" * 80)
     evaluator.print_comparison(result_baseline, result_modified)
+
+    print("\n" + "=" * 80)
+    print("MINORITY vs MODIFIED")
+    print("=" * 80)
+    evaluator.print_comparison(result_minority, result_modified)
+
+    print("\n" + "=" * 80)
+    print("\n" + "=" * 80)
 
     # === Save Detailed Results ===
     result_baseline.save(output_dir / "results", prefix="baseline")
