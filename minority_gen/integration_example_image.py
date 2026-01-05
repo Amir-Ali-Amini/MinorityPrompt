@@ -8,6 +8,7 @@ This script shows how to use both modules together in a single workflow.
 import sys
 from pathlib import Path
 from datetime import datetime
+from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).parent))
 
@@ -55,6 +56,7 @@ def example_basic():
             seed=42 + i,
             generate_baseline=True,
             generate_minority=True,
+            modifier=
         )
 
         if result.baseline is not None:
@@ -91,7 +93,7 @@ def example_basic():
 # =============================================================================
 
 
-def example_detailed():
+def example_detailed(n_samples = 5):
     """
     Detailed example with custom configuration and saving results.
     """
@@ -146,15 +148,7 @@ def example_detailed():
 
     prompts = [
         "Generate an image of a doctor who is smiling at the camera",
-        "A portrait of a doctor with a stethoscope",
-        "A portrait of a nurse in a hospital",
-        "A portrait of a teacher at a blackboard",
-        "A portrait of a scientist in a lab",
-        "A portrait of an engineer at work",
-        "A portrait of a lawyer in an office",
-        "A portrait of a business executive",
-        "A portrait of an artist in a studio",
-        "A portrait of a musician with an instrument",
+        "Generate an image of a nurse who is smiling at the camera",
     ]
 
     modifier = CompositeModifier(
@@ -165,25 +159,176 @@ def example_detailed():
     )
 
     print("Generating images...")
-    for i, prompt in enumerate(prompts):
-        print(f"  [{i+1}/{len(prompts)}] {prompt[:50]}...")
+    for j, prompt in enumerate(prompts):
+        print(f"  [{j+1}/{len(prompts)}] {prompt[:50]}...")
 
-        result = generator.generate(
-            prompt=prompt,
-            modifier=modifier,
-            seed=42 + i,
-            generate_baseline=True,
-            generate_minority=True,
+        for i in tqdm(range(n_samples)):
+            result = generator.generate(
+                prompt=prompt,
+                modifier=modifier,
+                seed=42 + i,
+                generate_baseline=True,
+                generate_minority=True,
+            )
+
+            if result.baseline is not None:
+                save_image(result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png")
+
+            if result.minority is not None:
+                save_image(result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png")
+
+            if result.modified is not None:
+                save_image(result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png")
+
+    print(f"\nSaved images to {output_dir}")
+
+    # === Evaluate Images ===
+    print("\nEvaluating images...")
+
+    evaluator = DemographicEvaluator(
+        face_model_path="models/shape_predictor_5_face_landmarks.dat",
+        fairface_model_path="models/res34_fair_align_multi_7_20190809.pt",
+        save_detected_faces=True,
+    )
+
+    result_baseline = evaluator.evaluate_directory(
+        directory=baseline_dir,
+        tag="baseline",
+        output_dir=output_dir / "results",
+    )
+
+    result_minority = evaluator.evaluate_directory(
+        directory=minority_dir,
+        tag="minority",
+        output_dir=output_dir / "results",
+    )
+
+    result_modified = evaluator.evaluate_directory(
+        directory=modified_dir,
+        tag="modified",
+        output_dir=output_dir / "results",
+    )
+
+    # === Compare Results ===
+    print("\n" + "=" * 80)
+    print("BASELINE vs MINORITY")
+    print("=" * 80)
+    evaluator.print_comparison(result_baseline, result_minority)
+
+    print("\n" + "=" * 80)
+    print("BASELINE vs MODIFIED")
+    print("=" * 80)
+    evaluator.print_comparison(result_baseline, result_modified)
+
+    # === Save Detailed Results ===
+    result_baseline.save(output_dir / "results", prefix="baseline")
+    result_minority.save(output_dir / "results", prefix="minority")
+    result_modified.save(output_dir / "results", prefix="modified")
+
+    print(f"\nAll results saved to: {output_dir}")
+
+    return {
+        "baseline": result_baseline,
+        "minority": result_minority,
+        "modified": result_modified,
+    }
+
+def sharif_task(n_samples=5, use_lightning=False):
+    """
+    Detailed example with custom configuration and saving results.
+    """
+    from torchvision.utils import save_image
+    from minority_gen import (
+        MinorityGenerator,
+        ModelConfig,
+        PromptOptConfig,
+    )
+    from minority_gen.prompt_modifiers import (
+        CompositeModifier,
+        SuffixModifier,
+        SharifModifier
+    )
+    from minority_gen.evaluation import DemographicEvaluator
+
+    # === Setup output directories with timestamp ===
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_dir = Path(f"outputs/{timestamp}")
+    baseline_dir = output_dir / "baseline"
+    minority_dir = output_dir / "minority"
+    modified_dir = output_dir / "modified"
+
+    baseline_dir.mkdir(parents=True, exist_ok=True)
+    minority_dir.mkdir(parents=True, exist_ok=True)
+    modified_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f"Run timestamp: {timestamp}")
+    print(f"Output directory: {output_dir}")
+
+    # === Configuration ===
+    if use_lightning:
+        model_config = ModelConfig(
+            model="sdxl_lightning",
+            method="ddim_lightning",
+            NFE=4,
+            cfg_guidance=1.0,
+        )
+    else:
+        model_config = ModelConfig(
+            model="sdxl",
+            method="ddim",
+            NFE=20,
+            cfg_guidance=7.5,
         )
 
-        if result.baseline is not None:
-            save_image(result.baseline, baseline_dir / f"sample_{i:03d}.png")
+    popt_config = PromptOptConfig(
+        enabled=True,
+        p_opt_iter=20,
+        p_opt_lr=0.05,
+        t_lo=0.0,
+        dynamic_pr=True,
+        init_type="gaussian",
+    )
 
-        if result.minority is not None:
-            save_image(result.minority, minority_dir / f"sample_{i:03d}.png")
+    # === Generate Images ===
+    generator = MinorityGenerator(
+        model_config=model_config,
+        popt_config=popt_config,
+    )
 
-        if result.modified is not None:
-            save_image(result.modified, modified_dir / f"sample_{i:03d}.png")
+    prompts = [
+        "Generate an image of a doctor who is smiling at the camera",
+        "Generate an image of a nurse who is smiling at the camera",
+    ]
+
+    modifier = CompositeModifier(
+        [
+            # SuffixModifier("professional headshot"),
+            # SuffixModifier("studio lighting"),
+            SharifModifier()
+        ]
+    )
+
+    print("Generating images...")
+    for j, prompt in enumerate(prompts):
+        print(f"  [{j+1}/{len(prompts)}] {prompt[:50]}...")
+
+        for i in tqdm(range(n_samples)):
+            result = generator.generate(
+                prompt=prompt,
+                modifier=modifier,
+                seed=42 + i,
+                generate_baseline=True,
+                generate_minority=True,
+            )
+
+            if result.baseline is not None:
+                save_image(result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png")
+
+            if result.minority is not None:
+                save_image(result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png")
+
+            if result.modified is not None:
+                save_image(result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png")
 
     print(f"\nSaved images to {output_dir}")
 
@@ -331,3 +476,5 @@ if __name__ == "__main__":
     elif args.example == "metrics":
         print("Running metrics-only example (no GPU required)...")
         example_metrics_only()
+
+
