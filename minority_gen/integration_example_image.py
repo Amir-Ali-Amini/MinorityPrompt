@@ -294,8 +294,8 @@ def sharif_task(n_samples=5, use_lightning=False):
 
     popt_config = PromptOptConfig(
         enabled=True,
-        p_opt_iter=20,
-        p_opt_lr=0.05,
+        p_opt_iter=10,
+        p_opt_lr=0.01,
         t_lo=0.0,
         dynamic_pr=True,
         init_type="default",
