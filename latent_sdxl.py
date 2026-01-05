@@ -585,6 +585,7 @@ class SDXL:
         if popt_kwargs["dynamic_pr"]:
             next_t = t - self.skip + 1
             t_mg = int(len(self.scheduler.alphas_cumprod_default) - next_t)
+            t_mg = max(0, min(t_mg, len(self.scheduler.alphas_cumprod) - 1))
             at_mg = self.scheduler.alphas_cumprod[t_mg]
 
         t_mg = torch.tensor(t_mg).to(t.device)
