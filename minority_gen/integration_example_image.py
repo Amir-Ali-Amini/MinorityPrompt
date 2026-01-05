@@ -56,7 +56,6 @@ def example_basic():
             seed=42 + i,
             generate_baseline=True,
             generate_minority=True,
-            modifier=
         )
 
         if result.baseline is not None:
@@ -93,7 +92,7 @@ def example_basic():
 # =============================================================================
 
 
-def example_detailed(n_samples = 5):
+def example_detailed(n_samples=5):
     """
     Detailed example with custom configuration and saving results.
     """
@@ -172,13 +171,19 @@ def example_detailed(n_samples = 5):
             )
 
             if result.baseline is not None:
-                save_image(result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png")
+                save_image(
+                    result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png"
+                )
 
             if result.minority is not None:
-                save_image(result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png")
+                save_image(
+                    result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png"
+                )
 
             if result.modified is not None:
-                save_image(result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png")
+                save_image(
+                    result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png"
+                )
 
     print(f"\nSaved images to {output_dir}")
 
@@ -233,6 +238,7 @@ def example_detailed(n_samples = 5):
         "modified": result_modified,
     }
 
+
 def sharif_task(n_samples=5, use_lightning=False):
     """
     Detailed example with custom configuration and saving results.
@@ -246,7 +252,7 @@ def sharif_task(n_samples=5, use_lightning=False):
     from minority_gen.prompt_modifiers import (
         CompositeModifier,
         SuffixModifier,
-        SharifModifier
+        SharifModifier,
     )
     from minority_gen.evaluation import DemographicEvaluator
 
@@ -322,13 +328,19 @@ def sharif_task(n_samples=5, use_lightning=False):
             )
 
             if result.baseline is not None:
-                save_image(result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png")
+                save_image(
+                    result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png"
+                )
 
             if result.minority is not None:
-                save_image(result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png")
+                save_image(
+                    result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png"
+                )
 
             if result.modified is not None:
-                save_image(result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png")
+                save_image(
+                    result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png"
+                )
 
     print(f"\nSaved images to {output_dir}")
 
@@ -476,5 +488,3 @@ if __name__ == "__main__":
     elif args.example == "metrics":
         print("Running metrics-only example (no GPU required)...")
         example_metrics_only()
-
-
