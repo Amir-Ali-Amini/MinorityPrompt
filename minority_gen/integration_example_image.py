@@ -298,7 +298,7 @@ def sharif_task(n_samples=5, use_lightning=False):
         p_opt_lr=0.05,
         t_lo=0.0,
         dynamic_pr=True,
-        init_type="gaussian",
+        init_type="default",
     )
 
     # === Generate Images ===
