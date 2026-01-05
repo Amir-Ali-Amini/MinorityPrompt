@@ -772,12 +772,7 @@ class SDXL:
         # Resize the token embeddings as we are adding new special tokens to the tokenizer
         original_dtype = text_enc.dtype
 
-        # Convert to float32 for the resize operation
-        text_enc = text_enc.to(torch.float32)
-        text_enc.resize_token_embeddings(len(tokenizer))
-
-        # Convert back to original dtype (float16)
-        text_enc = text_enc.to(original_dtype)
+        text_enc.resize_token_embeddings(len(tokenizer), mean_resizing=False)
 
         if init_type == "word":
             assert (init_rand_vocab != init_max_cs) or (

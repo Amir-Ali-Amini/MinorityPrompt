@@ -52,11 +52,11 @@ class StableDiffusion:
         ).to(device)
         self.vae = pipe.vae
         self.tokenizer = pipe.tokenizer
-        self.text_enc = pipe.text_enc
+        self.text_encoder = pipe.text_encoder
         self.unet = pipe.unet
 
         self.tokenizer_base = copy.deepcopy(pipe.tokenizer)
-        self.text_enc_base = copy.deepcopy(pipe.text_enc)
+        self.text_encoder_base = copy.deepcopy(pipe.text_encoder)
 
         self.scheduler = DDIMScheduler.from_pretrained(model_key, subfolder="scheduler")
         total_timesteps = len(self.scheduler.timesteps)
@@ -97,7 +97,9 @@ class StableDiffusion:
             max_length=self.tokenizer.model_max_length,
             return_tensors="pt",
         )
-        null_text_embed = self.text_enc(null_text_input.input_ids.to(self.device))[0]
+        null_text_embed = self.text_encoder(null_text_input.input_ids.to(self.device))[
+            0
+        ]
 
         # text embedding (guidance)
         text_input = self.tokenizer(
@@ -107,7 +109,7 @@ class StableDiffusion:
             return_tensors="pt",
             truncation=True,
         )
-        text_embed = self.text_enc(text_input.input_ids.to(self.device))[0]
+        text_embed = self.text_encoder(text_input.input_ids.to(self.device))[0]
 
         return null_text_embed, text_embed
 
@@ -125,7 +127,9 @@ class StableDiffusion:
             max_length=self.tokenizer.model_max_length,
             return_tensors="pt",
         )
-        null_text_embed = self.text_enc(null_text_input.input_ids.to(self.device))[0]
+        null_text_embed = self.text_encoder(null_text_input.input_ids.to(self.device))[
+            0
+        ]
 
         # text embedding (guidance)
         text_input = self.tokenizer(
@@ -135,7 +139,7 @@ class StableDiffusion:
             return_tensors="pt",
             truncation=True,
         )
-        text_embed = self.text_enc(text_input.input_ids.to(self.device))[0]
+        text_embed = self.text_encoder(text_input.input_ids.to(self.device))[0]
 
         return null_text_embed, text_embed
 
@@ -256,12 +260,12 @@ class StableDiffusion:
         decay_rate = popt_kwargs["lr_decay_rate"]
         num_opt_tokens = popt_kwargs["num_opt_tokens"]
 
-        para = self.text_enc.get_input_embeddings().parameters()
+        para = self.text_encoder.get_input_embeddings().parameters()
         optimizer = Adam(para, lr=popt_kwargs["p_opt_lr"] * (1.0 - step * decay_rate))
 
         # keep original embeddings as reference
         orig_embeds_params_enc = (
-            self.text_enc.get_input_embeddings().weight.data.clone()
+            self.text_encoder.get_input_embeddings().weight.data.clone()
         )
 
         prompt = self.prompt.copy()
@@ -335,7 +339,7 @@ class StableDiffusion:
                 placeholder_token_ids_enc,
                 orig_embeds_params_enc,
                 self.tokenizer,
-                self.text_enc,
+                self.text_encoder,
             )
             if not i == popt_kwargs["p_opt_iter"] - 1:
                 uc, c = self.differentiable_get_text_embed(
@@ -363,12 +367,12 @@ class StableDiffusion:
         decay_rate = popt_kwargs["lr_decay_rate"]
         num_opt_tokens = popt_kwargs["num_opt_tokens"]
 
-        para = self.text_enc.get_input_embeddings().parameters()
+        para = self.text_encoder.get_input_embeddings().parameters()
         optimizer = Adam(para, lr=popt_kwargs["p_opt_lr"] * (1.0 - step * decay_rate))
 
         # keep original embeddings as reference
         orig_embeds_params_enc = (
-            self.text_enc.get_input_embeddings().weight.data.clone()
+            self.text_encoder.get_input_embeddings().weight.data.clone()
         )
 
         prompts = self.prompts.copy()
@@ -443,7 +447,7 @@ class StableDiffusion:
                 placeholder_token_ids_enc,
                 orig_embeds_params_enc,
                 self.tokenizer,
-                self.text_enc,
+                self.text_encoder,
             )
 
             if not i == popt_kwargs["p_opt_iter"] - 1:
@@ -512,14 +516,7 @@ class StableDiffusion:
         print("Placeholder token ids: ", placeholder_token_ids)
 
         # Resize the token embeddings as we are adding new special tokens to the tokenizer
-        original_dtype = text_enc.dtype
-
-        # Convert to float32 for the resize operation
-        text_enc = text_enc.to(torch.float32)
-        text_enc.resize_token_embeddings(len(tokenizer))
-
-        # Convert back to original dtype (float16)
-        text_enc = text_enc.to(original_dtype)
+        text_enc.resize_token_embeddings(len(tokenizer), mean_resizing=False)
 
         if init_type == "word":
             if not init_rand_vocab:
@@ -608,12 +605,12 @@ class StableDiffusion:
         decay_rate = popt_kwargs["lr_decay_rate"]
         num_opt_tokens = popt_kwargs["num_opt_tokens"]
 
-        para = self.text_enc.get_input_embeddings().parameters()
+        para = self.text_encoder.get_input_embeddings().parameters()
         optimizer = Adam(para, lr=popt_kwargs["p_opt_lr"] * (1.0 - step * decay_rate))
 
         # keep original embeddings as reference
         orig_embeds_params_enc = (
-            self.text_enc.get_input_embeddings().weight.data.clone()
+            self.text_encoder.get_input_embeddings().weight.data.clone()
         )
 
         prompts = self.prompts.copy()
@@ -675,7 +672,7 @@ class StableDiffusion:
                 placeholder_token_ids_enc,
                 orig_embeds_params_enc,
                 self.tokenizer,
-                self.text_enc,
+                self.text_encoder,
             )
 
             if not i == popt_kwargs["p_opt_iter"] - 1:
@@ -728,9 +725,9 @@ class BaseDDIM(StableDiffusion):
         zt = zt.requires_grad_()
 
         if popt_kwargs["prompt_opt"]:
-            self.text_enc = self.text_enc.to(torch.float32)
+            self.text_encoder = self.text_encoder.to(torch.float32)
             placeholder_token_ids_enc = self.initialize_embedding(
-                self.tokenizer, self.text_enc, popt_kwargs
+                self.tokenizer, self.text_encoder, popt_kwargs
             )
             self.vae.requires_grad_(False)
 
@@ -804,9 +801,9 @@ class BaseDDIM(StableDiffusion):
         self.prompts = prompts
         self.null_prompts = null_prompts
 
-        # reset tokenizer and text_enc
+        # reset tokenizer and text_encoder
         self.tokenizer = copy.deepcopy(self.tokenizer_base)
-        self.text_enc = copy.deepcopy(self.text_enc_base)
+        self.text_encoder = copy.deepcopy(self.text_encoder_base)
 
         b_size = len(prompts)
 
@@ -820,9 +817,9 @@ class BaseDDIM(StableDiffusion):
         zt = zt.requires_grad_()
 
         if popt_kwargs["prompt_opt"] or popt_kwargs["popt_diverse"]:
-            self.text_enc = self.text_enc.to(torch.float32)
+            self.text_encoder = self.text_encoder.to(torch.float32)
             placeholder_token_ids_enc = self.initialize_embedding(
-                self.tokenizer, self.text_enc, popt_kwargs, b_size=b_size
+                self.tokenizer, self.text_encoder, popt_kwargs, b_size=b_size
             )
             self.vae.requires_grad_(False)
 
@@ -1045,9 +1042,9 @@ class BaseDDIMCFGpp(StableDiffusion):
         zt = zt.requires_grad_()  # why zt is required grad?
 
         if popt_kwargs["prompt_opt"]:
-            self.text_enc = self.text_enc.to(torch.float32)
+            self.text_encoder = self.text_encoder.to(torch.float32)
             placeholder_token_ids_enc = self.initialize_embedding(
-                self.tokenizer, self.text_enc, popt_kwargs
+                self.tokenizer, self.text_encoder, popt_kwargs
             )
             self.vae.requires_grad_(False)
 
@@ -1120,9 +1117,9 @@ class BaseDDIMCFGpp(StableDiffusion):
         self.prompts = prompts
         self.null_prompts = null_prompts
 
-        # reset tokenizer and text_enc
+        # reset tokenizer and text_encoder
         self.tokenizer = copy.deepcopy(self.tokenizer_base)
-        self.text_enc = copy.deepcopy(self.text_enc_base)
+        self.text_encoder = copy.deepcopy(self.text_encoder_base)
 
         b_size = len(prompts)
 
@@ -1135,9 +1132,9 @@ class BaseDDIMCFGpp(StableDiffusion):
         zt = zt.requires_grad_()
 
         if popt_kwargs["prompt_opt"]:
-            self.text_enc = self.text_enc.to(torch.float32)
+            self.text_encoder = self.text_encoder.to(torch.float32)
             placeholder_token_ids_enc = self.initialize_embedding(
-                self.tokenizer, self.text_enc, popt_kwargs, b_size=b_size
+                self.tokenizer, self.text_encoder, popt_kwargs, b_size=b_size
             )
             self.vae.requires_grad_(False)
 
