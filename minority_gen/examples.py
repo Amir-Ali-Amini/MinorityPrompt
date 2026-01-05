@@ -41,7 +41,7 @@ def example_1_simple():
     print("="*60)
     
     result = generate_comparison(
-        prompt="A portrait of a chef",
+        prompt="Generate an image of a doctor who is smiling at the camera",
         modifier=None,  # No modifier, just baseline vs minority
         seed=42,
         model="sdxl_lightning",
@@ -97,7 +97,7 @@ def example_3_custom_modifier():
     modifier = DiversityModifier("elderly Asian female")
     
     result = generate_comparison(
-        prompt="A portrait of a chef",
+        prompt="Generate an image of a doctor who is smiling at the camera,
         modifier=modifier,
         seed=42,
         output_dir="outputs/example_3_custom",
@@ -179,7 +179,7 @@ def example_6_batch_generation():
     print("="*60)
     
     prompts = [
-        "A portrait of a chef",
+        "Generate an image of a doctor who is smiling at the camera,
         "A woman standing in a room",
         "A dog playing in the park",
         "Three people walking on a street",

@@ -17,7 +17,7 @@ Stable Diffusion 1.5/2.0 and SDXL, including SDXL-Lightning.
 
 ## Setup
 
-1) Create the environment:
+1. Create the environment:
 
 ```bash
 git clone https://github.com/anonymous5293/MinorityPrompt
@@ -25,7 +25,7 @@ cd MinorityPrompt
 conda env create -f environment.yaml
 ```
 
-2) (Optional) SDXL-Lightning checkpoint:
+2. (Optional) SDXL-Lightning checkpoint:
 
 Download `sdxl_lightning_4step_unet.safetensors` from
 `https://huggingface.co/ByteDance/SDXL-Lightning/tree/main`
@@ -59,7 +59,7 @@ Edit them to change prompts, model, sampler, or prompt-opt settings.
 
 ```bash
 python examples/text_to_img.py \
-  --prompt "a portrait of a chef" \
+  --prompt "Generate an image of a doctor who is smiling at the camera \
   --null_prompt "" \
   --model sdxl \
   --method ddim \
