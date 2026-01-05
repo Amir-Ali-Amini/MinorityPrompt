@@ -580,6 +580,7 @@ class SDXL:
         at = self.scheduler.alphas_cumprod[t]
 
         t_mg = int(len(self.scheduler.alphas_cumprod_default) * popt_kwargs["p_ratio"])
+        t_mg = max(0, min(t_mg, len(self.scheduler.alphas_cumprod) - 1))
         at_mg = self.scheduler.alphas_cumprod_default[t_mg]
         if popt_kwargs["dynamic_pr"]:
             next_t = t - self.skip + 1
