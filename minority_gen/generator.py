@@ -383,7 +383,7 @@ def generate_comparison(
         from minority_gen.prompt_modifiers import StyleModifier
 
         result = generate_comparison(
-            prompt="Generate an image of a doctor who is smiling at the camera,
+            prompt="Generate an image of a doctor who is smiling at the camera",
             modifier=StyleModifier("anime"),
             seed=42,
             output_dir="outputs/chef_comparison"
