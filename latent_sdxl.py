@@ -625,7 +625,7 @@ class SDXL:
             loss = -1 * ms.sum()
 
             optimizer.zero_grad()
-            loss.backward()
+            loss.backward(retain_graph=True)()
             optimizer.step()
 
             # Let's make sure we don't update any embedding weights besides the newly added token
