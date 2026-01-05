@@ -164,9 +164,9 @@ class MinorityGenerator:
         """Get or create the solver (lazy initialization)."""
         solver_config = munchify({"num_sampling": self.model_config.NFE})
 
-        # Check if we need to recreate solver
-        if self._solver is not None and self._solver_config == solver_config:
-            return self._solver
+        # # Check if we need to recreate solver
+        # if self._solver is not None and self._solver_config == solver_config:
+        #     return self._solver
 
         model = self.model_config.model
         method = self.model_config.method
