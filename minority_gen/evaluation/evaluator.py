@@ -426,7 +426,9 @@ class DemographicEvaluator:
             DataFrame comparing all metrics
         """
         if result_a.metrics is None or result_b.metrics is None:
-            raise ValueError("Both results must have computed metrics")
+            # raise ValueError("Both results must have computed metrics")
+            print("Error: Both results must have computed metrics")
+            return
 
         return compare_metrics(
             result_a.metrics,

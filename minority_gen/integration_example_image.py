@@ -246,6 +246,11 @@ def sharif_task(
     p_opt_lr=0.01,
     t_lo=0.0,
     model="sdxl",
+    seed_plus: int = 0,
+    prompts=[
+        "Generate an image of a doctor who is smiling at the camera",
+        "Generate an image of a nurse who is smiling at the camera",
+    ],
 ):
     """
     Detailed example with custom configuration and saving results.
@@ -258,7 +263,6 @@ def sharif_task(
     )
     from minority_gen.prompt_modifiers import (
         CompositeModifier,
-        SuffixModifier,
         SharifModifier,
     )
     from minority_gen.evaluation import DemographicEvaluator
@@ -266,7 +270,7 @@ def sharif_task(
     # === Setup output directories with timestamp ===
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = Path(
-        f"outputs/{timestamp}_{model}{'_lightning_' if use_lightning else ''} "
+        f"outputs/{timestamp}_{model}{'_lightning' if use_lightning else ''}"
     )
     baseline_dir = output_dir / "baseline"
     minority_dir = output_dir / "minority"
@@ -317,11 +321,6 @@ def sharif_task(
         popt_config=popt_config,
     )
 
-    prompts = [
-        "Generate an image of a doctor who is smiling at the camera",
-        "Generate an image of a nurse who is smiling at the camera",
-    ]
-
     modifier = CompositeModifier(
         [
             # SuffixModifier("professional headshot"),
@@ -338,7 +337,7 @@ def sharif_task(
             result = generator.generate(
                 prompt=prompt,
                 modifier=modifier,
-                seed=42 + i,
+                seed=42 + i + seed_plus,
                 generate_baseline=True,
                 generate_minority=True,
             )
