@@ -45,7 +45,7 @@ def sharif_task(
     # === Setup output directories with timestamp ===
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = Path(
-        f"outputs/{timestamp}_{model}{'_lightning' if use_lightning else ''}_{init_type}"
+        f"outputs/{timestamp}_{model}{'_lightning' if use_lightning else ''}_{init_type}_{p_opt_iter=}_{p_opt_lr=}_{t_lo=}_{seed_plus=}_{n_samples=}"
     )
     baseline_dir = output_dir / "baseline"
     minority_dir = output_dir / "minority"
