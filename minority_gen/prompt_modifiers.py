@@ -8,6 +8,7 @@ and implementing the modify() method.
 from abc import ABC, abstractmethod
 from typing import Optional, List, Dict, Any
 from dataclasses import dataclass
+import pandas as pd
 
 
 class PromptModifier(ABC):
@@ -337,8 +338,6 @@ class SharifModifier(PromptModifier):
 
 class CSVModifier(PromptModifier):
     """Modifier that looks up enhanced prompts from a CSV."""
-
-    import pandas as pd
 
     def __init__(self, csv_path, original_col="prompt", enhanced_col="enhanced_prompt"):
         df = pd.read_csv(csv_path)
