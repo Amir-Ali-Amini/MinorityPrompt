@@ -275,22 +275,6 @@ class AttributeModifier(PromptModifier):
         return self._name
 
 
-class SharifModifier(PromptModifier):
-
-    def __init__(self, modifier_name: str = "sharif"):
-        self._name = modifier_name
-
-    def modify(self, prompt: str) -> str:
-        if "doctor" in prompt:
-            return "Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care"
-        if "nurse" in prompt:
-            return "Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera. Around his neck hangs a stethoscope, a symbol of his profession. His eyes reflect the compassion and dedication he brings to his job everyday."
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-
 # =============================================================================
 # Convenience functions
 # =============================================================================
@@ -328,3 +312,44 @@ def create_modifier(modifier_type: str, **kwargs) -> PromptModifier:
         )
 
     return constructors[modifier_type](**kwargs)
+
+
+# =============================================================================
+# Task Modifiers
+# =============================================================================
+
+
+class SharifModifier(PromptModifier):
+
+    def __init__(self, modifier_name: str = "sharif"):
+        self._name = modifier_name
+
+    def modify(self, prompt: str) -> str:
+        if "doctor" in prompt:
+            return "Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care"
+        if "nurse" in prompt:
+            return "Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera. Around his neck hangs a stethoscope, a symbol of his profession. His eyes reflect the compassion and dedication he brings to his job everyday."
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+
+class CSVModifier(PromptModifier):
+    """Modifier that looks up enhanced prompts from a CSV."""
+
+    import pandas as pd
+
+    def __init__(self, csv_path, original_col="prompt", enhanced_col="enhanced_prompt"):
+        df = pd.read_csv(csv_path)
+        self.lookup = {
+            str(row[original_col]).strip(): str(row[enhanced_col]).strip()
+            for _, row in df.iterrows()
+        }
+
+    def modify(self, prompt: str) -> str:
+        return self.lookup.get(prompt.strip(), prompt)
+
+    @property
+    def name(self) -> str:
+        return "csv_lookup"
