@@ -1,28 +1,23 @@
 #!/usr/bin/env python
 """
 Image Generation and Evaluation Pipeline
-
 Usage:
     # Edit DEFAULT_CONFIG below, then run:
     python concat_generate_and_evaluate.py
-
     # Or pass args:
     python concat_generate_and_evaluate.py --original-csv prompts.csv --images-per-prompt 10
 """
-
 import argparse
 import json
 import logging
 import sys
 from datetime import datetime
 from pathlib import Path
-
 import pandas as pd
 from tqdm import tqdm
 from torchvision.utils import save_image
 
 sys.path.insert(0, str(Path(__file__).parent))
-
 from minority_gen import MinorityGenerator, ModelConfig, PromptOptConfig
 from minority_gen.prompt_modifiers import CSVModifier
 from minority_gen.evaluation import DemographicEvaluator
@@ -50,9 +45,9 @@ DEFAULT_CONFIG = {
     "face_model_path": "models/shape_predictor_5_face_landmarks.dat",
     "fairface_model_path": "models/res34_fair_align_multi_7_20190809.pt",
 }
+
+
 # ============================================================================
-
-
 def parse_args():
     parser = argparse.ArgumentParser()
     d = DEFAULT_CONFIG
@@ -83,28 +78,23 @@ def parse_args():
 
 def main():
     args = parse_args()
-
     # === Setup output directories ===
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     exp_name = f"{timestamp}_{args.model}{'_lightning' if args.use_lightning else ''}_{args.init_type}_popt{args.p_opt_iter}_lr{args.p_opt_lr}_tlo{args.t_lo}_n{args.n_samples}"
     if args.experiment_name:
         exp_name += f"_{args.experiment_name}"
-
     output_dir = Path(args.output_dir) / exp_name
     baseline_dir = output_dir / "baseline"
     minority_dir = output_dir / "minority"
     modified_dir = output_dir / "modified"
     results_dir = output_dir / "results"
-
     baseline_dir.mkdir(parents=True, exist_ok=True)
     minority_dir.mkdir(parents=True, exist_ok=True)
     modified_dir.mkdir(parents=True, exist_ok=True)
     results_dir.mkdir(parents=True, exist_ok=True)
-
     # Save config
     with open(output_dir / "config.json", "w") as f:
         json.dump(vars(args), f, indent=2)
-
     # Setup logging
     logging.basicConfig(
         level=logging.INFO,
@@ -115,18 +105,15 @@ def main():
         ],
     )
     logging.info(f"Output: {output_dir}")
-
     # === Load prompts ===
     df = pd.read_csv(args.original_csv)
     prompts = df[args.prompt_col].tolist()
     logging.info(f"Loaded {len(prompts)} prompts")
-
     # === Setup modifier ===
     modifier = None
     if args.enhanced_csv:
         modifier = CSVModifier(args.enhanced_csv, args.prompt_col, args.enhanced_col)
         logging.info(f"Loaded {len(modifier.lookup)} enhanced prompts")
-
     # === Setup generator ===
     if args.use_lightning:
         model_config = ModelConfig(
@@ -136,7 +123,6 @@ def main():
         model_config = ModelConfig(
             model=args.model, method="ddim", NFE=50, cfg_guidance=7.5
         )
-
     popt_config = PromptOptConfig(
         enabled=True,
         p_opt_iter=args.p_opt_iter,
@@ -145,9 +131,7 @@ def main():
         init_type=args.init_type,
         dynamic_pr=True,
     )
-
     generator = MinorityGenerator(model_config=model_config, popt_config=popt_config)
-
     # === Setup evaluator ===
     base = Path(args.metrics_base_dir)
     evaluator = DemographicEvaluator(
@@ -161,18 +145,27 @@ def main():
         fairface_model_path=args.fairface_model_path,
         save_detected_faces=True,
     )
-
     # === Results storage ===
     all_results = []
 
     # === Generate and evaluate per prompt ===
-    for j in range(args.start_from_row, len(prompts)):
+    prompt_pbar = tqdm(
+        range(args.start_from_row, len(prompts)), desc="Prompts", position=0
+    )
+
+    for j in prompt_pbar:
         prompt = prompts[j]
+        prompt_pbar.set_description(f"Prompt {j}: {prompt[:30]}...")
         logging.info(f"[{j+1}/{len(prompts)}] {prompt[:50]}...")
 
         # Generate all samples for this prompt
-        for i in tqdm(range(args.n_samples), desc=f"Prompt {j}"):
+        sample_pbar = tqdm(
+            range(args.n_samples), desc="Generating samples", position=1, leave=False
+        )
+
+        for i in sample_pbar:
             seed = args.seed_start + i
+            sample_pbar.set_description(f"Sample {i+1}/{args.n_samples} (seed={seed})")
 
             result = generator.generate(
                 prompt=prompt,
@@ -181,10 +174,8 @@ def main():
                 generate_baseline=True,
                 generate_minority=True,
             )
-
             # Use prompt index and seed as image ID
             img_id = f"p{j}_seed{seed}"
-
             if result.baseline is not None:
                 save_image(result.baseline, baseline_dir / f"{img_id}.png")
             if result.minority is not None:
@@ -194,7 +185,6 @@ def main():
 
         # Evaluate this prompt's images
         logging.info(f"  Evaluating prompt {j}...")
-
         row = {"prompt_idx": j, "prompt": prompt}
 
         # Create per-prompt results directory for faces
@@ -207,11 +197,17 @@ def main():
         modified_imgs = list(modified_dir.glob(f"p{j}_*.png"))
 
         # Evaluate each type and save faces + metrics
-        for img_type, imgs in [
+        eval_types = [
             ("baseline", baseline_imgs),
             ("minority", minority_imgs),
             ("modified", modified_imgs),
-        ]:
+        ]
+
+        eval_pbar = tqdm(eval_types, desc="Evaluating", position=1, leave=False)
+
+        for img_type, imgs in eval_pbar:
+            eval_pbar.set_description(f"Evaluating {img_type}")
+
             if imgs:
                 try:
                     # Evaluate with output_dir to save faces and detailed results
@@ -221,17 +217,14 @@ def main():
                         output_dir=prompt_results_dir / img_type,
                         progress=False,
                     )
-
                     # Save detailed results
                     res.save(prompt_results_dir / img_type, prefix=img_type)
-
                     # Add to summary row
                     row[f"{img_type}_n_images"] = res.num_images
                     row[f"{img_type}_n_faces"] = res.num_faces
                     row[f"{img_type}_face_rate"] = res.images_with_faces / max(
                         res.num_images, 1
                     )
-
                     if res.metrics:
                         row[f"{img_type}_bias_w_race"] = res.metrics.bias_w.get(
                             "race", 0
@@ -252,7 +245,6 @@ def main():
                         row[f"{img_type}_kl_age"] = res.metrics.kl_divergence.get(
                             "age", 0
                         )
-
                 except Exception as e:
                     logging.warning(f"  Eval failed for {img_type}: {e}")
 
@@ -265,12 +257,15 @@ def main():
     logging.info("\nFinal evaluation on all images...")
 
     final_results = {}
-    for img_type, img_dir in [
+    final_types = [
         ("baseline", baseline_dir),
         ("minority", minority_dir),
         ("modified", modified_dir),
-    ]:
+    ]
+
+    for img_type, img_dir in tqdm(final_types, desc="Final evaluation"):
         if list(img_dir.glob("*.png")):
+            logging.info(f"  Evaluating all {img_type} images...")
             final_results[img_type] = evaluator.evaluate_directory(
                 img_dir, tag=img_type, output_dir=results_dir, progress=True
             )
@@ -282,7 +277,6 @@ def main():
         print("BASELINE vs MINORITY")
         print("=" * 80)
         evaluator.print_comparison(final_results["baseline"], final_results["minority"])
-
     if "baseline" in final_results and "modified" in final_results:
         print("\n" + "=" * 80)
         print("BASELINE vs MODIFIED")
