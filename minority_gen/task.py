@@ -116,8 +116,9 @@ def sharif_task(
             result = generator.generate(
                 prompt=prompt,
                 # modifier=modifier,
+                modifier=None,
                 seed=42 + i + seed_plus,
-                # generate_baseline=True,
+                generate_baseline=False,
                 generate_minority=True,
             )
             clean_gpu()
