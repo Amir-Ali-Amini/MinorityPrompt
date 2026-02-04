@@ -218,11 +218,11 @@ class MinorityGenerator:
         self._set_seed(seed)
 
         # Need fresh solver for each generation to reset tokenizer
+        clean_gpu()
         solver = self._get_solver()
 
         model = self.model_config.model
         cfg = self.model_config.cfg_guidance
-
         if model in ["sdxl", "sdxl_lightning"]:
             result = solver.sample(
                 prompt1=[null_prompt, prompt],
@@ -237,6 +237,7 @@ class MinorityGenerator:
                 cfg_guidance=cfg,
                 popt_kwargs=popt_kwargs,
             )
+        del solver
 
         return result
 
