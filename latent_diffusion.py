@@ -669,8 +669,8 @@ class StableDiffusion:
             loss = -1 * loss_per_sample.sum()  # encouraging z0t to be diverse
 
             optimizer.zero_grad()
-            # loss.backward(retain_graph=True)
-            loss.backward()
+            loss.backward(retain_graph=True)
+            # loss.backward()
 
             optimizer.step()
 

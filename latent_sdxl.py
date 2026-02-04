@@ -608,13 +608,15 @@ class SDXL:
         # --turn the grad off
 
         for i in range(popt_kwargs["p_opt_iter"]):
-            add_cond_kwargs["text_embeds"] = add_cond_kwargs["text_embeds"][
-                -1
-            ].unsqueeze(0)
-            add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"][-1].unsqueeze(0)
-            # null_prompt_embeds, prompt_embeds, add_cond_kwargs = (
-            #     self.get_embed_from_prompt12(prompt1, prompt2)
-            # )
+            # add_cond_kwargs["text_embeds"] = add_cond_kwargs["text_embeds"][
+            #     -1
+            # ].unsqueeze(0)
+            # add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"][-1].unsqueeze(0)
+            add_cond_kwargs["text_embeds"] = add_cond_kwargs["text_embeds"].detach()
+            add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"].detach()
+            null_prompt_embeds, prompt_embeds, add_cond_kwargs = (
+                self.get_embed_from_prompt12(prompt1, prompt2)
+            )
 
             _, noise_pred = self.predict_noise(
                 zt, t, None, prompt_embeds, add_cond_kwargs
