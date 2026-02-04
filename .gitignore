@@ -13,3 +13,7 @@ minority_gen/*example*
 minority_gen/evaluation/*example*
 *example*
 amirali_*
+.pipenv
+Miniforge3-Linux-x86_64.sh
+
+ckpt
