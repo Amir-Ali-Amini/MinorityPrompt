@@ -252,7 +252,8 @@ def random_search(
 
 if __name__ == "__main__":
     random_search(
-        models=["sdxl", "sdxl_lightning", "sd15"],
+        # models=["sdxl", "sdxl_lightning", "sd15"],
+        models=["sd15"],
         n_configs=25,
         n_samples=1,
         seed=42,
