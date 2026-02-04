@@ -48,7 +48,7 @@ def sample_all_params() -> dict:
 
 def get_model_config(model: str):
     """Return appropriate ModelConfig for each model type."""
-    from minority_gen import ModelConfig
+    from . import ModelConfig
 
     configs = {
         "sdxl_lightning": ModelConfig(
