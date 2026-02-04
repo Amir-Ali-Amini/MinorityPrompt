@@ -10,6 +10,8 @@ from pathlib import Path
 from datetime import datetime
 from tqdm import tqdm
 
+from utils.maintain import clean_gpu
+
 sys.path.insert(0, str(Path(__file__).parent))
 
 
@@ -106,9 +108,11 @@ def sharif_task(
 
     print("Generating images...")
     for j, prompt in enumerate(prompts):
+        clean_gpu()
         print(f"  [{j+1}/{len(prompts)}] {prompt[:50]}...")
 
         for i in tqdm(range(n_samples)):
+            clean_gpu()
             result = generator.generate(
                 prompt=prompt,
                 modifier=modifier,
@@ -116,6 +120,7 @@ def sharif_task(
                 generate_baseline=True,
                 generate_minority=True,
             )
+            clean_gpu()
 
             if result.baseline is not None:
                 save_image(
@@ -131,7 +136,7 @@ def sharif_task(
                 save_image(
                     result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png"
                 )
-
+    clean_gpu()
     print(f"\nSaved images to {output_dir}")
 
     # === Evaluate Images ===
@@ -160,7 +165,7 @@ def sharif_task(
         tag="modified",
         output_dir=output_dir / "results",
     )
-
+    clean_gpu()
     # === Compare Results ===
     print("\n" + "=" * 80)
     print("BASELINE vs MINORITY")
