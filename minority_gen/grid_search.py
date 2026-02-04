@@ -85,8 +85,8 @@ def run_single_config(
 ):
     """Run generation for a single parameter configuration (no evaluation)."""
     from torchvision.utils import save_image
-    from minority_gen import MinorityGenerator, PromptOptConfig
-    from minority_gen.prompt_modifiers import CompositeModifier, SharifModifier
+    from . import MinorityGenerator, PromptOptConfig
+    from .prompt_modifiers import CompositeModifier, SharifModifier
 
     param_str = (
         f"{model}_"
