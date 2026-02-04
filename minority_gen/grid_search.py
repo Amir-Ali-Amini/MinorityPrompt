@@ -48,7 +48,7 @@ def sample_all_params() -> dict:
 
 def get_model_config(model: str):
     """Return appropriate ModelConfig for each model type."""
-    from . import ModelConfig
+    from ..minority_gen import ModelConfig
 
     configs = {
         "sdxl_lightning": ModelConfig(
@@ -85,7 +85,7 @@ def run_single_config(
 ):
     """Run generation for a single parameter configuration (no evaluation)."""
     from torchvision.utils import save_image
-    from . import MinorityGenerator, PromptOptConfig
+    from ..minority_gen import MinorityGenerator, PromptOptConfig
     from .prompt_modifiers import CompositeModifier, SharifModifier
 
     param_str = (
