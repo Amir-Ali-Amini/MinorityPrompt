@@ -612,9 +612,9 @@ class SDXL:
                 -1
             ].unsqueeze(0)
             add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"][-1].unsqueeze(0)
-            null_prompt_embeds, prompt_embeds, add_cond_kwargs = (
-                self.get_embed_from_prompt12(prompt1, prompt2)
-            )
+            # null_prompt_embeds, prompt_embeds, add_cond_kwargs = (
+            #     self.get_embed_from_prompt12(prompt1, prompt2)
+            # )
 
             _, noise_pred = self.predict_noise(
                 zt, t, None, prompt_embeds, add_cond_kwargs
@@ -644,8 +644,8 @@ class SDXL:
             loss = -1 * ms.sum()
 
             optimizer.zero_grad()
-            # loss.backward(retain_graph=True)
-            loss.backward()
+            loss.backward(retain_graph=True)
+            # loss.backward()
             optimizer.step()
 
             # Let's make sure we don't update any embedding weights besides the newly added token
