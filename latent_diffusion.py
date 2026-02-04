@@ -517,7 +517,10 @@ class StableDiffusion:
         print("Placeholder token ids: ", placeholder_token_ids)
 
         # Resize the token embeddings as we are adding new special tokens to the tokenizer
-        text_enc.resize_token_embeddings(len(tokenizer), mean_resizing=False)
+        try:
+            text_enc.resize_token_embeddings(len(tokenizer), mean_resizing=False)
+        except:
+            text_enc.resize_token_embeddings(len(tokenizer))
 
         if init_type == "word":
             if not init_rand_vocab:

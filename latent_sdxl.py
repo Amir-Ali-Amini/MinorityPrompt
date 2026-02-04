@@ -774,7 +774,10 @@ class SDXL:
         # Resize the token embeddings as we are adding new special tokens to the tokenizer
         original_dtype = text_enc.dtype
 
-        text_enc.resize_token_embeddings(len(tokenizer), mean_resizing=False)
+        try:
+            text_enc.resize_token_embeddings(len(tokenizer), mean_resizing=False)
+        except:
+            text_enc.resize_token_embeddings(len(tokenizer))
 
         if init_type == "word":
             assert (init_rand_vocab != init_max_cs) or (
