@@ -7,10 +7,10 @@ from minority_gen.task import sharif_task
 
 if __name__ == "__main__":
     main()
+    random_search(
+        models=["sdxl_lightning"],
+        n_configs=25,
+        n_samples=1,
+        seed=42,
+    )
     sharif_task(use_lightning=True)
-    # random_search(
-    #     models=["sdxl_lightning"],
-    #     n_configs=25,
-    #     n_samples=1,
-    #     seed=42,
-    # )
