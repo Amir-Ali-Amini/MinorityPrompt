@@ -5,10 +5,10 @@ t_lo=0.0
 N=3
 lr=0.01
 
-# "original_csv": "sample_original_prompts.csv",
-# "prompt_col": "prompt",
-# "enhanced_csv": None,
-# "enhanced_col": "enhanced_prompt",
+# "original-csv": "sample_original_prompts.csv",
+# "prompt-col": "prompt",
+# "enhanced-csv": None,
+# "enhanced-col": "enhanced_prompt",
 
 # Create logs directory if it doesn't exist
 # -p flag: create parent directories as needed, no error if already exists
@@ -24,10 +24,10 @@ Run SD 1.5 on GPU 0
 CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
     --model sd15 \
     --t-lo 0.32 \
-    --original_csv "./Task/sample_enhanced_prompts.csv" \
-    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
-    --prompt_col "prompt" \
-    --enhanced_col "modified_prompts" \
+    --original-csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced-csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt-col "prompt" \
+    --enhanced-col "modified_prompts" \
     --n-samples ${N} \
     --p-opt-lr 0.0013 \
     --output-dir "./outputs/csv/main" \
@@ -40,10 +40,10 @@ echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 # CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
 #     --model sd20 \
 #     --t-lo ${t_lo} \
-#     --original_csv "./Task/sample_enhanced_prompts.csv" \
-#     --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
-#     --prompt_col "prompt" \
-#     --enhanced_col "modified_prompts" \
+#     --original-csv "./Task/sample_enhanced_prompts.csv" \
+#     --enhanced-csv "./Task/sample_enhanced_prompts.csv" \
+#     --prompt-col "prompt" \
+#     --enhanced-col "modified_prompts" \
 #     --n-samples ${N} \
 #     --p-opt-lr ${lr} \
 #     --output-dir "./outputs/csv/main" \
