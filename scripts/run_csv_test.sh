@@ -66,17 +66,17 @@ CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
 pid_sdxl=$!
 echo "Started SDXL Lightning on GPU 1 (PID: ${pid_sdxl})"
 
-echo ""
-echo "Logs are being written to:"
-echo "  - logs/test/sd15_${timestamp}.log"
-echo "  - logs/test/sd20_${timestamp}.log"
-echo "  - logs/test/sdxl_lightning_${timestamp}.log"
-echo ""
-echo "To monitor logs in real-time:"
-echo "  tail -f logs/test/sd15_${timestamp}.log"
-echo "  tail -f logs/test/sd20_${timestamp}.log"
-echo "  tail -f logs/test/sdxl_lightning_${timestamp}.log"
-echo ""
+# echo ""
+# echo "Logs are being written to:"
+# echo "  - logs/test/sd15_${timestamp}.log"
+# echo "  - logs/test/sd20_${timestamp}.log"
+# echo "  - logs/test/sdxl_lightning_${timestamp}.log"
+# echo ""
+# echo "To monitor logs in real-time:"
+# echo "  tail -f logs/test/sd15_${timestamp}.log"
+# echo "  tail -f logs/test/sd20_${timestamp}.log"
+# echo "  tail -f logs/test/sdxl_lightning_${timestamp}.log"
+# echo ""
 
 # Wait for all processes to complete
 # wait without arguments waits for all background jobs
