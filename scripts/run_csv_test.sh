@@ -20,7 +20,7 @@ mkdir -p logs/test
 timestamp=$(date +%Y%m%d_%H%M%S)
 
 # Run SD 1.5 on GPU 0
-# CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
+# CUDA_VISIBLE_DEVICES=0 python3 csv_runner.py \
 #     --model sd15 \
 #     --t-lo ${t_lo} \
 #     --original_csv "./Task/sample_enhanced_prompts.csv" \
@@ -35,7 +35,7 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 # echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 
 # Run SD 2.0 on GPU 1
-# CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
+# CUDA_VISIBLE_DEVICES=1 python3 csv_runner.py \
 #     --model sd20 \
 #     --t-lo ${t_lo} \
 #     --original_csv "./Task/sample_enhanced_prompts.csv" \
@@ -51,7 +51,7 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 # echo "Started SD 2.0 on GPU 1 (PID: ${pid_sd20})"
 
 # --use-lightning flag sets model="sdxl_lightning", method="ddim_lightning", NFE=4, cfg_guidance=1.0
-CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
+CUDA_VISIBLE_DEVICES=1 python3 csv_runner.py \
     --use-lightning \
     --t-lo ${t_lo} \
     --original_csv "./Task/sample_enhanced_prompts.csv" \
