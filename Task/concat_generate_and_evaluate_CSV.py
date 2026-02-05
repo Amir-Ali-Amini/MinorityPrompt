@@ -1,11 +1,54 @@
 #!/usr/bin/env python
 """
 Image Generation and Evaluation Pipeline
+
 Usage:
     # Edit DEFAULT_CONFIG below, then run:
     python concat_generate_and_evaluate.py
     # Or pass args:
     python concat_generate_and_evaluate.py --original-csv prompts.csv --n-samples 10
+
+Output Files:
+    - per_image_results.csv: Detailed results for each generated image
+    - per_image_bias_metrics.csv: Bias metrics extracted for easier analysis
+    - per_image_bias_aggregate_stats.csv: Mean/std/min/max of bias metrics
+    - per_prompt_results.csv: Aggregated metrics per prompt (across all seeds)
+
+Per-Image Metrics Explanation:
+    For each image, the following metrics are computed (when faces are detected):
+
+    Basic Info:
+    - n_faces: Number of faces detected in the image
+    - has_face: Boolean indicating if at least one face was found
+    - race/gender/age: Predictions for the first detected face
+    - all_faces_json: JSON string with predictions for ALL faces
+
+    Bias Metrics (meaningful when image has 2+ faces):
+    - bias_w_{attr}: Bias-W (population-level bias) - measures deviation from
+                     uniform distribution. Lower = more uniform/less biased.
+                     Formula: sqrt((1/N_a) * sum_a (freq_a - 1/N_a)^2)
+
+    - bias_p_{attr}: Bias-P (per-image bias) - measures within-image demographic
+                     uniformity. Only computed for images with multiple faces.
+                     Lower = more uniform/less biased.
+
+    - kl_{attr}: KL Divergence from uniform distribution.
+                 Lower = closer to uniform reference.
+                 Formula: sum_x P(x) * log(P(x) / Q(x))
+
+    - ens_{attr}: Effective Number of Species (diversity metric).
+                  Higher = more diverse. Maximum = number of categories.
+                  Formula: exp(-sum_g p_g * ln(p_g))
+
+    Attribute Groups ({attr}):
+    - race: 7 categories (White, Black, Latino_Hispanic, East Asian,
+            Southeast Asian, Indian, Middle Eastern)
+    - gender: 2 categories (Male, Female)
+    - age: 9 categories (0-2, 3-9, 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70+)
+    - race_gender, race_age, gender_age, race_gender_age: Joint distributions
+
+Note: Bias-W, Bias-P, KL, and ENS are distribution-based metrics. For single-face
+images, these metrics may not be meaningful (computed over a sample of 1).
 """
 import argparse
 import json
@@ -76,7 +119,17 @@ def parse_args():
 
 
 def evaluate_single_image(evaluator, img_path, output_dir=None):
-    """Evaluate a single image and return metrics dict."""
+    """
+    Evaluate a single image and return metrics dict.
+
+    Returns per-image metrics including:
+    - Basic face detection info (n_faces, has_face)
+    - Per-face predictions (race, gender, age for each face)
+    - Per-image bias metrics (bias_w, bias_p, kl, ens) if multiple faces detected
+
+    Note: Bias metrics are distribution-based and only meaningful when
+    the image contains 2+ faces.
+    """
     if img_path is None or not Path(img_path).exists():
         return {}
 
@@ -93,15 +146,78 @@ def evaluate_single_image(evaluator, img_path, output_dir=None):
             "has_face": res.num_faces > 0,
         }
 
-        # Get per-face predictions if available
-        if res.predictions and len(res.predictions) > 0:
-            pred = res.predictions[0]  # First face
-            metrics["race"] = pred.get("race", "")
-            metrics["race_conf"] = pred.get("race_confidence", 0)
-            metrics["gender"] = pred.get("gender", "")
-            metrics["gender_conf"] = pred.get("gender_confidence", 0)
-            metrics["age"] = pred.get("age", "")
-            metrics["age_conf"] = pred.get("age_confidence", 0)
+        # Get predictions for ALL faces (not just the first one)
+        if res.predictions_df is not None and len(res.predictions_df) > 0:
+            # First face predictions (for backward compatibility)
+            first_row = res.predictions_df.iloc[0]
+            metrics["race"] = first_row["race"] if "race" in first_row.index else ""
+            metrics["race_conf"] = (
+                first_row["race_confidence"]
+                if "race_confidence" in first_row.index
+                else 0
+            )
+            metrics["gender"] = (
+                first_row["gender"] if "gender" in first_row.index else ""
+            )
+            metrics["gender_conf"] = (
+                first_row["gender_confidence"]
+                if "gender_confidence" in first_row.index
+                else 0
+            )
+            metrics["age"] = first_row["age"] if "age" in first_row.index else ""
+            metrics["age_conf"] = (
+                first_row["age_confidence"]
+                if "age_confidence" in first_row.index
+                else 0
+            )
+
+            # Store all face predictions as JSON string for detailed analysis
+            all_faces_data = []
+            for idx, row in res.predictions_df.iterrows():
+                face_data = {
+                    "face_idx": idx,
+                    "race": row["race"] if "race" in row.index else "",
+                    "race_conf": (
+                        float(row["race_confidence"])
+                        if "race_confidence" in row.index
+                        else 0.0
+                    ),
+                    "gender": row["gender"] if "gender" in row.index else "",
+                    "gender_conf": (
+                        float(row["gender_confidence"])
+                        if "gender_confidence" in row.index
+                        else 0.0
+                    ),
+                    "age": row["age"] if "age" in row.index else "",
+                    "age_conf": (
+                        float(row["age_confidence"])
+                        if "age_confidence" in row.index
+                        else 0.0
+                    ),
+                }
+                all_faces_data.append(face_data)
+            metrics["all_faces_json"] = json.dumps(all_faces_data)
+
+        # Per-image bias metrics (only meaningful for multi-face images)
+        if res.metrics is not None:
+            # Bias-W: population-level bias (lower = more uniform)
+            for attr, value in res.metrics.bias_w.items():
+                metrics[f"bias_w_{attr}"] = value
+
+            # ENS: effective number of species (higher = more diverse)
+            for attr, value in res.metrics.ens.items():
+                metrics[f"ens_{attr}"] = value
+
+            # KL Divergence from uniform (lower = closer to uniform)
+            for attr, value in res.metrics.kl_divergence.items():
+                metrics[f"kl_{attr}"] = value
+
+            # Bias-P: per-image bias (only for multi-face images)
+            # This is already per-image, so we extract it
+            if len(res.metrics.bias_p) > 0:
+                for _, row in res.metrics.bias_p.iterrows():
+                    attr_group = row["Attribute_Group"]
+                    metrics[f"bias_p_{attr_group}"] = row["Bias-P"]
 
         return metrics
     except Exception as e:
@@ -451,8 +567,74 @@ def main():
     except Exception as e:
         logging.error(f"  Comparison printing failed: {e}")
 
+    # === Create per-image bias metrics summary ===
+    logging.info("\nCreating per-image bias metrics summary...")
+    try:
+        per_image_df = pd.DataFrame(per_image_results)
+
+        # Extract bias metric columns for easier analysis
+        bias_metric_cols = [
+            col
+            for col in per_image_df.columns
+            if any(x in col for x in ["bias_w_", "bias_p_", "kl_", "ens_"])
+        ]
+
+        if bias_metric_cols:
+            # Create summary for images with multiple faces (where bias metrics are meaningful)
+            summary_cols = ["prompt_idx", "seed", "img_id", "prompt"]
+            for prefix in ["baseline", "minority", "modified"]:
+                prefix_cols = [f"{prefix}_n_faces"] + [
+                    col for col in bias_metric_cols if col.startswith(prefix)
+                ]
+                summary_cols.extend(
+                    [c for c in prefix_cols if c in per_image_df.columns]
+                )
+
+            # Filter available columns
+            available_cols = [c for c in summary_cols if c in per_image_df.columns]
+            bias_summary_df = per_image_df[available_cols].copy()
+
+            # Save bias metrics summary
+            bias_summary_df.to_csv(
+                results_dir / "per_image_bias_metrics.csv", index=False
+            )
+            logging.info(f"  Saved per-image bias metrics summary")
+
+            # Create aggregate statistics across all images
+            agg_stats = {}
+            for prefix in ["baseline", "minority", "modified"]:
+                prefix_bias_cols = [
+                    col
+                    for col in bias_metric_cols
+                    if col.startswith(prefix) and col in per_image_df.columns
+                ]
+                for col in prefix_bias_cols:
+                    valid_values = per_image_df[col].dropna()
+                    if len(valid_values) > 0:
+                        metric_name = col.replace(f"{prefix}_", "")
+                        agg_stats[f"{prefix}_{metric_name}_mean"] = valid_values.mean()
+                        agg_stats[f"{prefix}_{metric_name}_std"] = valid_values.std()
+                        agg_stats[f"{prefix}_{metric_name}_min"] = valid_values.min()
+                        agg_stats[f"{prefix}_{metric_name}_max"] = valid_values.max()
+
+            if agg_stats:
+                agg_df = pd.DataFrame([agg_stats])
+                agg_df.to_csv(
+                    results_dir / "per_image_bias_aggregate_stats.csv", index=False
+                )
+                logging.info(f"  Saved aggregate bias statistics")
+
+    except Exception as e:
+        logging.error(f"  Failed to create bias metrics summary: {e}")
+
     logging.info(f"\nDone! Results saved to: {output_dir}")
     logging.info(f"  - Per-image results: {results_dir / 'per_image_results.csv'}")
+    logging.info(
+        f"  - Per-image bias metrics: {results_dir / 'per_image_bias_metrics.csv'}"
+    )
+    logging.info(
+        f"  - Bias aggregate stats: {results_dir / 'per_image_bias_aggregate_stats.csv'}"
+    )
     logging.info(f"  - Per-prompt results: {results_dir / 'per_prompt_results.csv'}")
 
     return final_results

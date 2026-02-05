@@ -2,7 +2,7 @@
 
 # Prompt optimization parameters
 t_lo=0.0
-N=3
+N=10
 lr=0.01
 
 # "original-csv": "sample_original_prompts.csv",
