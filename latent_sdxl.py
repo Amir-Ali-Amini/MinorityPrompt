@@ -920,7 +920,6 @@ class SDXLLightning(SDXL):
         )
 
         # ------------------------------
-        self.unet.enable_gradient_checkpointing()
         # ------------------------------
         ext = os.path.splitext(light_model_ckpt)[1]
         if ext == ".safetensors":
@@ -930,6 +929,7 @@ class SDXLLightning(SDXL):
         print(unet.load_state_dict(state_dict, strict=True))
         unet.requires_grad_(False)
         self.unet = unet
+        self.unet.enable_gradient_checkpointing()
 
         # pipe2 = StableDiffusionXLPipeline.from_single_file(light_model_ckpt, torch_dtype=dtype).to(device)
         pipe = StableDiffusionXLPipeline.from_pretrained(
