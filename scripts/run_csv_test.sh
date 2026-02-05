@@ -22,13 +22,13 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 # Run SD 1.5 on GPU 0
 CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
     --model sd15 \
-    --t-lo ${0.32} \
+    --t-lo 0.32 \
     --original_csv "./Task/sample_enhanced_prompts.csv" \
     --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
     --prompt_col "prompt" \
     --enhanced_col "modified_prompts" \
     --n-samples ${2} \
-    --p-opt-lr ${0.0013} \
+    --p-opt-lr 0.0013 \
     --output-dir "./outputs/csv/test" \
     > logs/csv/test/sd15_${timestamp}.log 2>&1 &
 
