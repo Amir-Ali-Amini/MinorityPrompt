@@ -33,8 +33,8 @@ CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
     --output-dir "./outputs/csv/test" \
     > logs/csv/test/sd15_${timestamp}.log 2>&1 &
 
-# pid_sd15=$!
-# echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
+pid_sd15=$!
+echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 
 # Run SD 2.0 on GPU 1
 # CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
