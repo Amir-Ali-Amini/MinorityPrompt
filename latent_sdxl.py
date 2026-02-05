@@ -518,7 +518,7 @@ class SDXL:
         placeholder_string = popt_kwargs["placeholder_string"]
         assert "_" in placeholder_string and len(placeholder_string.split("_")) == 2
         placeholder_symbol = placeholder_string.split("_")[0]
-
+        zt = zt.detach()
         torch.cuda.empty_cache()
 
         decay_rate = popt_kwargs["lr_decay_rate"]
