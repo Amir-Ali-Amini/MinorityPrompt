@@ -108,7 +108,6 @@ def sharif_task(
 
     print("Generating images...")
     for j, prompt in enumerate(prompts):
-        clean_gpu()
         print(f"  [{j+1}/{len(prompts)}] {prompt[:50]}...")
 
         for i in tqdm(range(n_samples)):
@@ -120,19 +119,21 @@ def sharif_task(
                 generate_baseline=True,
                 generate_minority=True,
             )
-            clean_gpu()
 
             if result.baseline is not None:
+                print(f"saving baseline sample_{j:03d}_{i:03d}.png")
                 save_image(
                     result.baseline, baseline_dir / f"sample_{j:03d}_{i:03d}.png"
                 )
 
             if result.minority is not None:
+                print(f"saving minority sample_{j:03d}_{i:03d}.png")
                 save_image(
                     result.minority, minority_dir / f"sample_{j:03d}_{i:03d}.png"
                 )
 
             if result.modified is not None:
+                print(f"saving modified sample_{j:03d}_{i:03d}.png")
                 save_image(
                     result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png"
                 )

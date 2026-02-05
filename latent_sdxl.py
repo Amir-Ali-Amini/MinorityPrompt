@@ -518,7 +518,7 @@ class SDXL:
         placeholder_string = popt_kwargs["placeholder_string"]
         assert "_" in placeholder_string and len(placeholder_string.split("_")) == 2
         placeholder_symbol = placeholder_string.split("_")[0]
-        zt = zt.detach()
+        # zt = zt.detach()
         torch.cuda.empty_cache()
 
         decay_rate = popt_kwargs["lr_decay_rate"]
@@ -643,8 +643,8 @@ class SDXL:
             loss = -1 * ms.sum()
 
             optimizer.zero_grad()
-            # loss.backward(retain_graph=True)
-            loss.backward()
+            loss.backward(retain_graph=True)
+            # loss.backward()
             optimizer.step()
 
             # Let's make sure we don't update any embedding weights besides the newly added token
