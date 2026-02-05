@@ -111,7 +111,7 @@ def sharif_task(
         print(f"  [{j+1}/{len(prompts)}] {prompt[:50]}...")
 
         for i in tqdm(range(n_samples)):
-            clean_gpu()
+
             result = generator.generate(
                 prompt=prompt,
                 modifier=modifier,
@@ -137,7 +137,7 @@ def sharif_task(
                 save_image(
                     result.modified, modified_dir / f"sample_{j:03d}_{i:03d}.png"
                 )
-    clean_gpu()
+
     print(f"\nSaved images to {output_dir}")
 
     # === Evaluate Images ===
@@ -166,7 +166,7 @@ def sharif_task(
         tag="modified",
         output_dir=output_dir / "results",
     )
-    clean_gpu()
+
     # === Compare Results ===
     print("\n" + "=" * 80)
     print("BASELINE vs MINORITY")
