@@ -331,8 +331,8 @@ class StableDiffusion:
             loss = -1 * ms.sum()
 
             optimizer.zero_grad()
-            # loss.backward(retain_graph=True)
-            loss.backward()
+            loss.backward(retain_graph=True)
+            # loss.backward()
 
             optimizer.step()
 
@@ -441,8 +441,8 @@ class StableDiffusion:
             loss = -1 * ms.sum()
 
             optimizer.zero_grad()
-            # loss.backward(retain_graph=True)
-            loss.backward()
+            loss.backward(retain_graph=True)
+            # loss.backward()
             optimizer.step()
 
             # Let's make sure we don't update any embedding weights besides the newly added token

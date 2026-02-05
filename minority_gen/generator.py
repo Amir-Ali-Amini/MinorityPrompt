@@ -237,34 +237,6 @@ class MinorityGenerator:
             )
         del solver
 
-        return
-
-    def _generate_batch(
-        self,
-        prompts: list[str],
-        null_prompts: list[str],
-        popt_kwargs: dict,
-        seed: int,
-    ) -> torch.Tensor:
-        """Generate a single image."""
-        self._set_seed(seed)
-
-        # Need fresh solver for each generation to reset tokenizer
-        solver = self._get_solver()
-
-        model = self.model_config.model
-        cfg = self.model_config.cfg_guidance
-        if model in ["sdxl", "sdxl_lightning"]:
-            raise NotImplementedError(f"batch generation is no available for {model}")
-        else:
-            result = solver.sample(
-                prompts=prompts,
-                null_prompts=null_prompts,
-                cfg_guidance=cfg,
-                popt_kwargs=popt_kwargs,
-            )
-        del solver
-
         return result
 
     def generate(
@@ -347,124 +319,37 @@ class MinorityGenerator:
 
     def generate_batch(
         self,
-        prompts: list[str],
+        prompts: List[str],
         modifier: Optional[PromptModifier] = None,
-        seed: int = 42,
-        null_prompts: list[str] | None = None,
-        generate_baseline: bool = True,
-        generate_minority: bool = True,
-        popt_config_override: Optional[PromptOptConfig] = None,
-    ) -> GenerationResult:
+        seeds: Optional[List[int]] = None,
+        **kwargs,
+    ) -> List[GenerationResult]:
         """
-        Generate comparison images.
+        Generate comparisons for multiple prompts.
 
         Args:
-            prompt: The text prompt to generate from
-            modifier: Optional prompt modifier for the "modified" image
-            seed: Random seed for reproducibility
-            null_prompt: Negative prompt (typically empty)
-            generate_baseline: Whether to generate baseline image
-            generate_minority: Whether to generate minority image
-            popt_config_override: Override prompt optimization config
+            prompts: List of text prompts
+            modifier: Optional modifier applied to all prompts
+            seeds: Optional list of seeds (defaults to [42, 43, 44, ...])
+            **kwargs: Additional arguments passed to generate()
 
         Returns:
-            GenerationResult containing all generated images
+            List of GenerationResult objects
         """
-        n_prompts = len(prompts)
-        if null_prompts is None:
-            null_prompts = [""] * n_prompts
-        results = [
-            GenerationResult(
-                seed=seed,
-                model=self.model_config.model,
-                baseline_prompt=prompt,
-            )
-            for prompt in prompts
-        ]
-        # Configuration for no optimization
-        baseline_popt = PromptOptConfig.disabled().to_dict()
+        if seeds is None:
+            seeds = list(range(42, 42 + len(prompts)))
+        elif len(seeds) != len(prompts):
+            raise ValueError("Number of seeds must match number of prompts")
 
-        # Configuration for minority optimization
-        popt_config = popt_config_override or self.popt_config
-        minority_popt = popt_config.to_dict()
-
-        # Handle negative prompt from modifier
-        effective_null_prompt = null_prompts
-        if modifier and isinstance(modifier, NegativePromptModifier):
-            effective_null_prompt = modifier.negative_prompt
-
-        # 1. Generate baseline
-        if generate_baseline:
-            b_results = self._generate_batch(
-                prompt=prompts,
-                null_prompt=null_prompts,
-                popt_kwargs=baseline_popt,
-                seed=seed,
+        results = []
+        for i, (prompt, seed) in enumerate(zip(prompts, seeds)):
+            print(f"\n[{i+1}/{len(prompts)}] Processing: {prompt[:50]}...")
+            result = self.generate(
+                prompt=prompt, modifier=modifier, seed=seed, **kwargs
             )
-            for idx, res in enumerate(b_results):
-                results[idx].baseline = res
-                results[idx].baseline_prompt = prompts[idx]
-        # 2. Generate with modifier
-        if modifier is not None:
-            modified_prompts = [modifier.modify(prompt) for prompt in prompts]
+            results.append(result)
 
-            # Use effective null prompt (may be modified)
-            m_results = self._generate_batch(
-                prompt=modified_prompts,
-                null_prompt=effective_null_prompt,
-                popt_kwargs=baseline_popt,  # No optimization, just prompt change
-                seed=seed,
-            )
-            for idx, res in enumerate(m_results):
-                results[idx].modified = res
-                results[idx].modified_prompt = modified_prompts[idx]
-                results[idx].modifier_name = modifier.name
-        # 3. Generate with MinorityPrompt
-        if generate_minority:
-            minority_results = self._generate_batch(
-                prompt=prompts,
-                null_prompt=null_prompts,
-                popt_kwargs=minority_popt,
-                seed=seed,
-            )
-            for idx, res in enumerate(minority_results):
-                results[idx].minority = res
-                results[idx].minority_prompt = prompts[idx]
         return results
-
-    # def generate_batch(
-    #     self,
-    #     prompts: List[str],
-    #     modifier: Optional[PromptModifier] = None,
-    #     seeds: Optional[List[int]] = None,
-    #     **kwargs,
-    # ) -> List[GenerationResult]:
-    #     """
-    #     Generate comparisons for multiple prompts.
-
-    #     Args:
-    #         prompts: List of text prompts
-    #         modifier: Optional modifier applied to all prompts
-    #         seeds: Optional list of seeds (defaults to [42, 43, 44, ...])
-    #         **kwargs: Additional arguments passed to generate()
-
-    #     Returns:
-    #         List of GenerationResult objects
-    #     """
-    #     if seeds is None:
-    #         seeds = list(range(42, 42 + len(prompts)))
-    #     elif len(seeds) != len(prompts):
-    #         raise ValueError("Number of seeds must match number of prompts")
-
-    #     results = []
-    #     for i, (prompt, seed) in enumerate(zip(prompts, seeds)):
-    #         print(f"\n[{i+1}/{len(prompts)}] Processing: {prompt[:50]}...")
-    #         result = self.generate(
-    #             prompt=prompt, modifier=modifier, seed=seed, **kwargs
-    #         )
-    #         results.append(result)
-
-    #     return results
 
 
 def generate_comparison(
