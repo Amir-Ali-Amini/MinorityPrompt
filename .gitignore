@@ -17,3 +17,6 @@ amirali_*
 Miniforge3-Linux-x86_64.sh
 
 ckpt
+models
+outputs
+=*
