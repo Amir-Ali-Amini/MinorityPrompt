@@ -5,6 +5,11 @@ t_lo=0.0
 N=3
 lr=0.01
 
+# "original_csv": "sample_original_prompts.csv",
+# "prompt_col": "prompt",
+# "enhanced_csv": None,
+# "enhanced_col": "enhanced_prompt",
+
 # Create logs directory if it doesn't exist
 # -p flag: create parent directories as needed, no error if already exists
 mkdir -p logs
@@ -17,9 +22,13 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
     --model sd15 \
     --t-lo ${t_lo} \
+    --original_csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt_col "prompt" \
+    --enhanced_col "modified_prompts" \
     --n-samples ${N} \
     --p-opt-lr ${lr} \
-    > logs/sd15_${timestamp}.log 2>&1 &
+    > logs/test/sd15_${timestamp}.log 2>&1 &
 
 # Store the process ID of the SD 1.5 job
 # $! contains the PID of the most recently backgrounded process
@@ -30,9 +39,13 @@ echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
     --model sd20 \
     --t-lo ${t_lo} \
+    --original_csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt_col "prompt" \
+    --enhanced_col "modified_prompts" \
     --n-samples ${N} \
     --p-opt-lr ${lr} \
-    > logs/sd20_${timestamp}.log 2>&1 &
+    > logs/test/sd20_${timestamp}.log 2>&1 &
 
 # Store the process ID of the SD 2.0 job
 pid_sd20=$!
@@ -43,9 +56,13 @@ echo "Started SD 2.0 on GPU 1 (PID: ${pid_sd20})"
 CUDA_VISIBLE_DEVICES=2 python csv_runner.py \
     --use-lightning \
     --t-lo ${t_lo} \
+    --original_csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt_col "prompt" \
+    --enhanced_col "modified_prompts" \
     --n-samples ${N} \
     --p-opt-lr ${lr} \
-    > logs/sdxl_lightning_${timestamp}.log 2>&1 &
+    > logs/test/sdxl_lightning_${timestamp}.log 2>&1 &
 
 # Store the process ID of the SDXL Lightning job
 pid_sdxl=$!
@@ -53,14 +70,14 @@ echo "Started SDXL Lightning on GPU 2 (PID: ${pid_sdxl})"
 
 echo ""
 echo "Logs are being written to:"
-echo "  - logs/sd15_${timestamp}.log"
-echo "  - logs/sd20_${timestamp}.log"
-echo "  - logs/sdxl_lightning_${timestamp}.log"
+echo "  - logs/test/sd15_${timestamp}.log"
+echo "  - logs/test/sd20_${timestamp}.log"
+echo "  - logs/test/sdxl_lightning_${timestamp}.log"
 echo ""
 echo "To monitor logs in real-time:"
-echo "  tail -f logs/sd15_${timestamp}.log"
-echo "  tail -f logs/sd20_${timestamp}.log"
-echo "  tail -f logs/sdxl_lightning_${timestamp}.log"
+echo "  tail -f logs/test/sd15_${timestamp}.log"
+echo "  tail -f logs/test/sd20_${timestamp}.log"
+echo "  tail -f logs/test/sdxl_lightning_${timestamp}.log"
 echo ""
 
 # Wait for all processes to complete
