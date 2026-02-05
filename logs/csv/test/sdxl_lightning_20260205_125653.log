@@ -1,0 +1,399 @@
+2026-02-05 12:57:07,846 | Output: outputs/csv/test/20260205_125707_sdxl_lightning_default_popt10_lr0.01_tlo0.0_n2
+2026-02-05 12:57:07,848 | Loaded 2 prompts
+2026-02-05 12:57:07,849 | Loaded 2 enhanced prompts
+Warning: dlib not installed. Face detection will not be available.
+Install with: pip install dlib
+Prompts:   0%|          | 0/2 [00:00<?, ?it/s]Prompt 0: Generate an image of a doctor ...:   0%|          | 0/2 [00:00<?, ?it/s]2026-02-05 12:57:07,851 | [1/2] Generate an image of a doctor who is smiling at th...
+
+Samples:   0%|          | 0/2 [00:00<?, ?it/s][A
+Sample 1/2 (seed=42):   0%|          | 0/2 [00:00<?, ?it/s][A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/diffusers/configuration_utils.py:244: FutureWarning: It is deprecated to pass a pretrained model name or path to `from_config`.If you were trying to load a model, please use <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.load_config(...) followed by <class 'diffusers.models.unets.unet_2d_condition.UNet2DConditionModel'>.from_config(...) instead. Otherwise, please make sure to pass a configuration dictionary instead. This functionality will be removed in v1.0.0.
+  deprecate("config-passed-as-path", "1.0.0", deprecation_message, standard_warn=False)
+/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+GPU memory allocated: 0.00 GB
+GPU memory cached: 0.00 GB
+GPU memory allocated: 0.00 GB
+GPU memory cached: 0.00 GB
+Generating baseline: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 0.00 GB
+GPU memory cached: 0.00 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:11<00:15,  3.78s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:15<00:11,  3.86s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:16<00:02,  2.32s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:16<00:00,  2.38s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:01,  2.73it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  4.02it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  4.84it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  5.37it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  4.74it/s]
+GPU memory allocated: 8.12 GB
+GPU memory cached: 8.41 GB
+Generating modified (csv_lookup): 'Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care'
+GPU memory allocated: 8.12 GB
+GPU memory cached: 8.41 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:05<00:07,  1.92s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:08<00:06,  2.24s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:11<00:01,  1.76s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:11<00:00,  1.60s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:00,  7.16it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  6.57it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  6.73it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  6.66it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  6.70it/s]
+GPU memory allocated: 8.11 GB
+GPU memory cached: 9.73 GB
+Generating minority: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 8.11 GB
+GPU memory cached: 9.73 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:06<00:09,  2.33s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:07,  2.57s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:12<00:01,  1.95s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:12<00:00,  1.81s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:15<00:47, 15.85s/it][A[A
+
+SDXL:  50%|█████     | 2/4 [00:31<00:31, 15.94s/it][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:47<00:15, 15.98s/it][A[A
+
+SDXL: 100%|██████████| 4/4 [01:04<00:00, 16.30s/it][A[ASDXL: 100%|██████████| 4/4 [01:04<00:00, 16.17s/it]
+
+Sample 1/2 (seed=42):  50%|█████     | 1/2 [04:24<04:24, 264.30s/it][A
+Sample 2/2 (seed=43):  50%|█████     | 1/2 [04:24<04:24, 264.30s/it][AGPU memory allocated: 10.07 GB
+GPU memory cached: 11.02 GB
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.02 GB
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.02 GB
+Generating baseline: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.02 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:09,  2.41s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:07,  2.65s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:12<00:01,  1.99s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:12<00:00,  1.84s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:00,  7.46it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  6.53it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  6.42it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  6.38it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  6.47it/s]
+GPU memory allocated: 8.11 GB
+GPU memory cached: 9.66 GB
+Generating modified (csv_lookup): 'Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care'
+GPU memory allocated: 8.11 GB
+GPU memory cached: 9.66 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:02<00:02,  1.47it/s][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:06<00:05,  1.98s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:10<00:01,  1.92s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:10<00:00,  1.49s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:01,  2.05it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  3.54it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:01<00:00,  2.71it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:01<00:00,  3.58it/s][A[ASDXL: 100%|██████████| 4/4 [00:01<00:00,  3.22it/s]
+GPU memory allocated: 8.10 GB
+GPU memory cached: 8.80 GB
+Generating minority: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 8.10 GB
+GPU memory cached: 8.80 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:08<00:10,  2.68s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:11<00:08,  2.91s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:14<00:02,  2.20s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.04s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:28<01:26, 28.77s/it][A[A
+
+SDXL:  50%|█████     | 2/4 [01:00<01:01, 30.53s/it][A[A
+
+SDXL:  75%|███████▌  | 3/4 [01:18<00:25, 25.01s/it][A[A
+
+SDXL: 100%|██████████| 4/4 [01:47<00:00, 26.41s/it][A[ASDXL: 100%|██████████| 4/4 [01:47<00:00, 26.88s/it]
+2026-02-05 13:06:43,931 |   Failed to save per_image_results.csv: Cannot save file into a non-existent directory: 'outputs/csv/test/20260205_125707_sdxl_lightning_default_popt10_lr0.01_tlo0.0_n2/results'
+
+Sample 2/2 (seed=43): 100%|██████████| 2/2 [09:36<00:00, 292.23s/it][A
+                                                                    [A2026-02-05 13:06:43,931 |   Evaluating prompt 0 (aggregated)...
+2026-02-05 13:06:43,932 |   Failed to save per_prompt_results.csv: Cannot save file into a non-existent directory: 'outputs/csv/test/20260205_125707_sdxl_lightning_default_popt10_lr0.01_tlo0.0_n2/results'
+2026-02-05 13:06:43,933 |   Saved results for prompt 0
+Prompt 0: Generate an image of a doctor ...:  50%|█████     | 1/2 [09:36<09:36, 576.08s/it]Prompt 1: Generate an image of a nurse w...:  50%|█████     | 1/2 [09:36<09:36, 576.08s/it]2026-02-05 13:06:43,933 | [2/2] Generate an image of a nurse who is smiling at the...
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.52 GB
+
+Samples:   0%|          | 0/2 [00:00<?, ?it/s][A
+Sample 1/2 (seed=42):   0%|          | 0/2 [00:00<?, ?it/s][AGPU memory allocated: 10.07 GB
+GPU memory cached: 11.52 GB
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.52 GB
+Generating baseline: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.52 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:10,  2.60s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:08,  2.75s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:13<00:02,  2.05s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  1.92s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:00,  6.73it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  5.96it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  6.31it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  6.27it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  6.27it/s]
+GPU memory allocated: 8.10 GB
+GPU memory cached: 10.02 GB
+Generating modified (csv_lookup): 'Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera.'
+GPU memory allocated: 8.10 GB
+GPU memory cached: 10.02 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:09,  2.47s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:07,  2.64s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:11<00:01,  1.68s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:11<00:00,  1.67s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:00,  7.71it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  6.63it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  6.62it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  6.45it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  6.58it/s]
+GPU memory allocated: 8.10 GB
+GPU memory cached: 9.08 GB
+Generating minority: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 8.10 GB
+GPU memory cached: 9.08 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:10<00:13,  3.40s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:14<00:11,  3.77s/it][A[A
+
+Loading pipeline components...:  71%|███████▏  | 5/7 [00:15<00:05,  2.71s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:18<00:02,  2.88s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:18<00:00,  2.63s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:24<01:14, 24.96s/it][A[A
+
+SDXL:  50%|█████     | 2/4 [00:41<00:40, 20.29s/it][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:58<00:18, 18.75s/it][A[A
+
+SDXL: 100%|██████████| 4/4 [01:16<00:00, 18.16s/it][A[ASDXL: 100%|██████████| 4/4 [01:16<00:00, 19.04s/it]
+
+Sample 1/2 (seed=42):  50%|█████     | 1/2 [04:40<04:40, 280.95s/it][A
+Sample 2/2 (seed=43):  50%|█████     | 1/2 [04:40<04:40, 280.95s/it][AGPU memory allocated: 10.07 GB
+GPU memory cached: 11.31 GB
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.31 GB
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.31 GB
+Generating baseline: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 10.07 GB
+GPU memory cached: 11.31 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:06<00:09,  2.31s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:07,  2.62s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:12<00:01,  2.00s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:12<00:00,  1.83s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:00,  6.86it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  5.66it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  6.08it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  6.22it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  6.16it/s]
+GPU memory allocated: 8.11 GB
+GPU memory cached: 10.20 GB
+Generating modified (csv_lookup): 'Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera.'
+GPU memory allocated: 8.11 GB
+GPU memory cached: 10.20 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:10,  2.58s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:08,  2.68s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:13<00:01,  1.96s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  1.86s/it]
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:00<00:00,  6.74it/s][A[A
+
+SDXL:  50%|█████     | 2/4 [00:00<00:00,  5.84it/s][A[A
+
+SDXL:  75%|███████▌  | 3/4 [00:00<00:00,  6.02it/s][A[A
+
+SDXL: 100%|██████████| 4/4 [00:00<00:00,  6.21it/s][A[ASDXL: 100%|██████████| 4/4 [00:00<00:00,  6.16it/s]
+GPU memory allocated: 8.10 GB
+GPU memory cached: 8.60 GB
+Generating minority: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 8.10 GB
+GPU memory cached: 8.60 GB
+<All keys matched successfully>
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:10,  2.60s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:08,  2.76s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:13<00:02,  2.01s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  1.90s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SDXL:   0%|          | 0/4 [00:00<?, ?it/s][A[A
+
+SDXL:  25%|██▌       | 1/4 [00:16<00:50, 16.72s/it][A[A
+
+SDXL:  50%|█████     | 2/4 [00:41<00:43, 21.61s/it][A[A
+
+SDXL:  75%|███████▌  | 3/4 [01:08<00:23, 23.79s/it][A[A
+
+SDXL: 100%|██████████| 4/4 [01:31<00:00, 23.48s/it][A[ASDXL: 100%|██████████| 4/4 [01:31<00:00, 22.79s/it]
+
+Sample 2/2 (seed=43): 100%|██████████| 2/2 [09:15<00:00, 277.32s/it][A
+                                                                    [A2026-02-05 13:15:59,659 |   Evaluating prompt 1 (aggregated)...
+2026-02-05 13:15:59,660 |   Saved results for prompt 1
+Prompt 1: Generate an image of a nurse w...: 100%|██████████| 2/2 [18:51<00:00, 564.11s/it]Prompt 1: Generate an image of a nurse w...: 100%|██████████| 2/2 [18:51<00:00, 565.90s/it]
+2026-02-05 13:15:59,661 | 
+Final evaluation on all images...
+GPU memory allocated: 10.08 GB
+GPU memory cached: 11.51 GB
+Final evaluation:   0%|          | 0/3 [00:00<?, ?it/s]Final evaluation: 100%|██████████| 3/3 [00:00<00:00, 16600.15it/s]
+2026-02-05 13:15:59,661 | 
+Done! Results saved to: outputs/csv/test/20260205_125707_sdxl_lightning_default_popt10_lr0.01_tlo0.0_n2
+2026-02-05 13:15:59,661 |   - Per-image results: outputs/csv/test/20260205_125707_sdxl_lightning_default_popt10_lr0.01_tlo0.0_n2/results/per_image_results.csv
+2026-02-05 13:15:59,661 |   - Per-prompt results: outputs/csv/test/20260205_125707_sdxl_lightning_default_popt10_lr0.01_tlo0.0_n2/results/per_prompt_results.csv

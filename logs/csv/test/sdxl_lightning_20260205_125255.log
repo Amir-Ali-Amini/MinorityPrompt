@@ -1,0 +1,15 @@
+usage: csv_runner.py [-h] [--original-csv ORIGINAL_CSV]
+                     [--prompt-col PROMPT_COL] [--enhanced-csv ENHANCED_CSV]
+                     [--enhanced-col ENHANCED_COL] [--model MODEL]
+                     [--use-lightning] [--face_model_path FACE_MODEL_PATH]
+                     [--fairface_model_path FAIRFACE_MODEL_PATH]
+                     [--n-samples N_SAMPLES] [--seed-start SEED_START]
+                     [--p-opt-iter P_OPT_ITER] [--p-opt-lr P_OPT_LR]
+                     [--t-lo T_LO] [--init-type INIT_TYPE]
+                     [--metrics-base-dir METRICS_BASE_DIR]
+                     [--output-dir OUTPUT_DIR]
+                     [--experiment-name EXPERIMENT_NAME]
+                     [--start-from-row START_FROM_ROW]
+csv_runner.py: error: argument --n-samples/-n: expected one argument
+Warning: dlib not installed. Face detection will not be available.
+Install with: pip install dlib

@@ -1,0 +1,29 @@
+2026-02-05 15:22:15,002 | Output: outputs/csv/main/20260205_152215_sd15_default_popt10_lr0.0013_tlo0.32_n10
+2026-02-05 15:22:15,005 | Loaded 2 prompts
+Traceback (most recent call last):
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'modified_prompts'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/csv_runner.py", line 4, in <module>
+    main()
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/Task/concat_generate_and_evaluate_CSV.py", line 270, in main
+    modifier = CSVModifier(args.enhanced_csv, args.prompt_col, args.enhanced_col)
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/minority_gen/prompt_modifiers.py", line 344, in __init__
+    self.lookup = {
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/minority_gen/prompt_modifiers.py", line 345, in <dictcomp>
+    str(row[original_col]).strip(): str(row[enhanced_col]).strip()
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/pandas/core/series.py", line 1007, in __getitem__
+    return self._get_value(key)
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/pandas/core/series.py", line 1116, in _get_value
+    loc = self.index.get_loc(label)
+  File "/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 'modified_prompts'

@@ -1,0 +1,909 @@
+2026-02-05 12:57:07,707 | Output: outputs/csv/test/20260205_125707_sd15_default_popt10_lr0.0013_tlo0.32_n2
+2026-02-05 12:57:07,710 | Loaded 2 prompts
+2026-02-05 12:57:07,711 | Loaded 2 enhanced prompts
+Warning: dlib not installed. Face detection will not be available.
+Install with: pip install dlib
+Prompts:   0%|          | 0/2 [00:00<?, ?it/s]Prompt 0: Generate an image of a doctor ...:   0%|          | 0/2 [00:00<?, ?it/s]2026-02-05 12:57:07,712 | [1/2] Generate an image of a doctor who is smiling at th...
+
+Samples:   0%|          | 0/2 [00:00<?, ?it/s][A
+Sample 1/2 (seed=42):   0%|          | 0/2 [00:00<?, ?it/s][A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+GPU memory allocated: 0.00 GB
+GPU memory cached: 0.00 GB
+GPU memory allocated: 0.00 GB
+GPU memory cached: 0.00 GB
+Generating baseline: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 0.00 GB
+GPU memory cached: 0.00 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:06,  1.15s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:03<00:05,  1.28s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:10<00:09,  3.28s/it][A[A
+
+Loading pipeline components...:  71%|███████▏  | 5/7 [00:11<00:04,  2.25s/it][A[A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  1.74s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  1.92s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:00<00:20,  2.35it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:07,  6.70it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:03, 11.68it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:02, 15.42it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:00<00:02, 17.54it/s][A[A
+
+SD:  30%|███       | 15/50 [00:01<00:01, 18.17it/s][A[A
+
+SD:  36%|███▌      | 18/50 [00:01<00:01, 19.88it/s][A[A
+
+SD:  42%|████▏     | 21/50 [00:01<00:01, 21.06it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:01<00:01, 22.31it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:01<00:01, 22.13it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:01<00:00, 21.80it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:01<00:00, 21.61it/s][A[A
+
+SD:  72%|███████▏  | 36/50 [00:01<00:00, 22.20it/s][A[A
+
+SD:  78%|███████▊  | 39/50 [00:02<00:00, 22.75it/s][A[A
+
+SD:  84%|████████▍ | 42/50 [00:02<00:00, 23.70it/s][A[A
+
+SD:  90%|█████████ | 45/50 [00:02<00:00, 23.06it/s][A[A
+
+SD:  96%|█████████▌| 48/50 [00:02<00:00, 22.50it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 19.25it/s]
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.30 GB
+Generating modified (csv_lookup): 'Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care'
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.30 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:06,  1.10s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:03<00:04,  1.05s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:16<00:15,  5.27s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.98s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.96s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:00<00:16,  2.99it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:06,  7.81it/s][A[A
+
+SD:  10%|█         | 5/50 [00:00<00:08,  5.53it/s][A[A
+
+SD:  16%|█▌        | 8/50 [00:01<00:04,  9.19it/s][A[A
+
+SD:  22%|██▏       | 11/50 [00:01<00:05,  7.59it/s][A[A
+
+SD:  28%|██▊       | 14/50 [00:01<00:03, 10.21it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:02<00:04,  7.64it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:02<00:03, 10.14it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:02<00:03,  8.41it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:02<00:02, 10.71it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:02<00:01, 13.00it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:03<00:02,  9.25it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:03<00:01, 11.42it/s][A[A
+
+SD:  70%|███████   | 35/50 [00:03<00:01,  8.35it/s][A[A
+
+SD:  76%|███████▌  | 38/50 [00:04<00:01, 10.71it/s][A[A
+
+SD:  82%|████████▏ | 41/50 [00:04<00:01,  8.99it/s][A[A
+
+SD:  88%|████████▊ | 44/50 [00:04<00:00, 11.21it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:05<00:00,  8.19it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:05<00:00, 10.46it/s][A[ASD: 100%|██████████| 50/50 [00:05<00:00,  9.48it/s]
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.40 GB
+Generating minority: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.40 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:03<00:22,  3.71s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:09<00:11,  2.93s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:20<00:17,  5.74s/it][A[A
+
+Loading pipeline components...:  71%|███████▏  | 5/7 [00:20<00:07,  3.98s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:24<00:00,  3.03s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:24<00:00,  3.51s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:34,  5.61s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:10<04:22,  5.46s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:16<04:14,  5.41s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:22<04:17,  5.60s/it][A[A
+
+SD:  10%|█         | 5/50 [00:34<06:00,  8.01s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:46<06:48,  9.28s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:55<06:35,  9.20s/it][A[A
+
+SD:  16%|█▌        | 8/50 [01:03<06:08,  8.78s/it][A[A
+
+SD:  18%|█▊        | 9/50 [01:08<05:16,  7.71s/it][A[A
+
+SD:  20%|██        | 10/50 [01:13<04:39,  6.98s/it][A[A
+
+SD:  22%|██▏       | 11/50 [01:19<04:14,  6.52s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:30<05:03,  7.99s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:42<05:43,  9.27s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:52<05:32,  9.24s/it][A[A
+
+SD:  30%|███       | 15/50 [02:02<05:35,  9.58s/it][A[A
+
+SD:  32%|███▏      | 16/50 [02:07<04:41,  8.29s/it][A[A
+
+SD:  34%|███▍      | 17/50 [02:13<04:04,  7.40s/it][A[A
+
+SD:  36%|███▌      | 18/50 [02:18<03:37,  6.78s/it][A[A
+
+SD:  38%|███▊      | 19/50 [02:23<03:16,  6.34s/it][A[A
+
+SD:  40%|████      | 20/50 [02:29<03:01,  6.04s/it][A[A
+
+SD:  42%|████▏     | 21/50 [02:34<02:48,  5.82s/it][A[A
+
+SD:  44%|████▍     | 22/50 [02:39<02:39,  5.69s/it][A[A
+
+SD:  46%|████▌     | 23/50 [02:45<02:30,  5.59s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:50<02:23,  5.52s/it][A[A
+
+SD:  50%|█████     | 25/50 [02:56<02:19,  5.56s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [03:01<02:14,  5.62s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [03:07<02:10,  5.66s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [03:13<02:04,  5.64s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [03:18<01:58,  5.67s/it][A[A
+
+SD:  60%|██████    | 30/50 [03:24<01:54,  5.73s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [03:34<02:08,  6.78s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [03:45<02:28,  8.25s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [03:54<02:23,  8.42s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [04:05<02:24,  9.03s/it][A[A
+
+SD:  72%|███████▏  | 36/50 [04:05<01:09,  4.97s/it][A[A
+
+SD:  78%|███████▊  | 39/50 [04:05<00:27,  2.52s/it][A[A
+
+SD:  82%|████████▏ | 41/50 [04:06<00:16,  1.78s/it][A[A
+
+SD:  88%|████████▊ | 44/50 [04:06<00:06,  1.07s/it][A[A
+
+SD:  94%|█████████▍| 47/50 [04:06<00:02,  1.44it/s][A[A
+
+SD: 100%|██████████| 50/50 [04:06<00:00,  2.12it/s][A[ASD: 100%|██████████| 50/50 [04:06<00:00,  4.93s/it]
+
+Sample 1/2 (seed=42):  50%|█████     | 1/2 [05:22<05:22, 322.35s/it][A
+Sample 2/2 (seed=43):  50%|█████     | 1/2 [05:22<05:22, 322.35s/it][AGPU memory allocated: 4.26 GB
+GPU memory cached: 4.69 GB
+GPU memory allocated: 4.26 GB
+GPU memory cached: 4.69 GB
+GPU memory allocated: 4.26 GB
+GPU memory cached: 4.69 GB
+Generating baseline: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 4.26 GB
+GPU memory cached: 4.69 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:05,  1.06it/s][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:06<00:09,  2.41s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:17<00:15,  5.31s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.71s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.92s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:02, 19.65it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:02, 19.32it/s][A[A
+
+SD:  14%|█▍        | 7/50 [00:00<00:02, 19.94it/s][A[A
+
+SD:  20%|██        | 10/50 [00:00<00:01, 20.86it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:00<00:01, 21.68it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:00<00:01, 21.91it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:00<00:01, 21.83it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:01, 21.80it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:01<00:01, 21.90it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:01<00:00, 22.17it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:01<00:00, 22.16it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:01<00:00, 21.72it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:01<00:00, 21.51it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:01<00:00, 21.55it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:01<00:00, 21.62it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:02<00:00, 21.78it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:02<00:00, 21.90it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 21.64it/s]
+GPU memory allocated: 2.28 GB
+GPU memory cached: 3.82 GB
+Generating modified (csv_lookup): 'Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care'
+GPU memory allocated: 2.28 GB
+GPU memory cached: 3.82 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:08,  1.43s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:09<00:13,  3.37s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:24<00:22,  7.46s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:29<00:00,  3.88s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:29<00:00,  4.16s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:03, 15.61it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:08,  5.36it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:05,  7.99it/s][A[A
+
+SD:  16%|█▌        | 8/50 [00:00<00:04, 10.17it/s][A[A
+
+SD:  20%|██        | 10/50 [00:01<00:05,  7.59it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:01<00:03, 10.46it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:01<00:02, 12.87it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:01<00:02, 15.00it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:01, 16.70it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:01<00:01, 17.88it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:02<00:01, 18.83it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:02<00:00, 19.58it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:02<00:00, 20.08it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:02<00:00, 20.04it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:02<00:00, 20.25it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:02<00:00, 20.62it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:02<00:00, 20.88it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:03<00:00, 21.32it/s][A[ASD: 100%|██████████| 50/50 [00:03<00:00, 15.82it/s]
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.72 GB
+Generating minority: 'Generate an image of a doctor who is smiling at the camera'
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.72 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:02<00:13,  2.22s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:10<00:14,  3.68s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:19<00:16,  5.65s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:22<00:00,  2.83s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:22<00:00,  3.25s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:31,  5.53s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:11<04:30,  5.63s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:23<06:47,  8.68s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:36<08:00, 10.44s/it][A[A
+
+SD:  10%|█         | 5/50 [00:46<07:32, 10.05s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:56<07:32, 10.28s/it][A[A
+
+SD:  14%|█▍        | 7/50 [01:02<06:20,  8.86s/it][A[A
+
+SD:  16%|█▌        | 8/50 [01:11<06:06,  8.73s/it][A[A
+
+SD:  18%|█▊        | 9/50 [01:24<07:02, 10.31s/it][A[A
+
+SD:  20%|██        | 10/50 [01:38<07:30, 11.26s/it][A[A
+
+SD:  22%|██▏       | 11/50 [01:46<06:38, 10.22s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:58<06:55, 10.93s/it][A[A
+
+SD:  26%|██▌       | 13/50 [02:06<06:12, 10.06s/it][A[A
+
+SD:  28%|██▊       | 14/50 [02:12<05:16,  8.80s/it][A[A
+
+SD:  30%|███       | 15/50 [02:18<04:34,  7.84s/it][A[A
+
+SD:  32%|███▏      | 16/50 [02:23<04:03,  7.16s/it][A[A
+
+SD:  34%|███▍      | 17/50 [02:33<04:25,  8.03s/it][A[A
+
+SD:  36%|███▌      | 18/50 [02:47<05:10,  9.70s/it][A[A
+
+SD:  38%|███▊      | 19/50 [02:58<05:16, 10.20s/it][A[A
+
+SD:  40%|████      | 20/50 [03:08<05:02, 10.09s/it][A[A
+
+SD:  42%|████▏     | 21/50 [03:22<05:25, 11.22s/it][A[A
+
+SD:  44%|████▍     | 22/50 [03:37<05:45, 12.35s/it][A[A
+
+SD:  46%|████▌     | 23/50 [03:48<05:23, 11.97s/it][A[A
+
+SD:  48%|████▊     | 24/50 [03:58<04:51, 11.22s/it][A[A
+
+SD:  50%|█████     | 25/50 [04:07<04:24, 10.57s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [04:12<03:35,  8.99s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [04:17<03:01,  7.90s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [04:23<02:40,  7.29s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [04:36<03:05,  8.83s/it][A[A
+
+SD:  60%|██████    | 30/50 [04:47<03:10,  9.51s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [04:56<02:57,  9.36s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [05:04<02:43,  9.09s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [05:10<02:15,  7.96s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [05:15<01:54,  7.17s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [05:15<00:41,  3.16s/it][A[A
+
+SD:  80%|████████  | 40/50 [05:15<00:17,  1.77s/it][A[A
+
+SD:  86%|████████▌ | 43/50 [05:15<00:07,  1.10s/it][A[A
+
+SD:  92%|█████████▏| 46/50 [05:15<00:02,  1.39it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [05:15<00:00,  2.04it/s][A[ASD: 100%|██████████| 50/50 [05:16<00:00,  6.32s/it]
+2026-02-05 13:09:12,098 |   Failed to save per_image_results.csv: Cannot save file into a non-existent directory: 'outputs/csv/test/20260205_125707_sd15_default_popt10_lr0.0013_tlo0.32_n2/results'
+
+Sample 2/2 (seed=43): 100%|██████████| 2/2 [12:04<00:00, 369.22s/it][A
+                                                                    [A2026-02-05 13:09:12,098 |   Evaluating prompt 0 (aggregated)...
+2026-02-05 13:09:12,099 |   Failed to save per_prompt_results.csv: Cannot save file into a non-existent directory: 'outputs/csv/test/20260205_125707_sd15_default_popt10_lr0.0013_tlo0.32_n2/results'
+2026-02-05 13:09:12,099 |   Saved results for prompt 0
+Prompt 0: Generate an image of a doctor ...:  50%|█████     | 1/2 [12:04<12:04, 724.39s/it]Prompt 1: Generate an image of a nurse w...:  50%|█████     | 1/2 [12:04<12:04, 724.39s/it]2026-02-05 13:09:12,100 | [2/2] Generate an image of a nurse who is smiling at the...
+GPU memory allocated: 4.27 GB
+GPU memory cached: 5.00 GB
+
+Samples:   0%|          | 0/2 [00:00<?, ?it/s][A
+Sample 1/2 (seed=42):   0%|          | 0/2 [00:00<?, ?it/s][AGPU memory allocated: 4.27 GB
+GPU memory cached: 5.00 GB
+GPU memory allocated: 4.27 GB
+GPU memory cached: 5.00 GB
+Generating baseline: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 4.27 GB
+GPU memory cached: 5.00 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:08,  1.39s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:08<00:11,  2.84s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:18<00:16,  5.57s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:22<00:00,  3.03s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:22<00:00,  3.25s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:09,  5.15it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:05,  8.87it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:05,  7.71it/s][A[A
+
+SD:  16%|█▌        | 8/50 [00:01<00:06,  6.64it/s][A[A
+
+SD:  22%|██▏       | 11/50 [00:01<00:04,  9.73it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:01<00:05,  7.07it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:01<00:03,  9.62it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:02<00:03,  7.93it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:02<00:02, 10.07it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:02<00:03,  7.66it/s][A[A
+
+SD:  52%|█████▏    | 26/50 [00:03<00:02,  8.96it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:03<00:03,  6.75it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:03<00:02,  9.01it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:03<00:01, 11.30it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:04<00:00, 13.39it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:04<00:00, 15.32it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:04<00:00, 16.84it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:04<00:00, 18.12it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:04<00:00, 19.25it/s][A[ASD: 100%|██████████| 50/50 [00:04<00:00, 10.84it/s]
+GPU memory allocated: 2.28 GB
+GPU memory cached: 4.15 GB
+Generating modified (csv_lookup): 'Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera.'
+GPU memory allocated: 2.28 GB
+GPU memory cached: 4.15 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  7.64it/s][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:10,  2.62s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:18<00:16,  5.64s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.73s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.97s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:02, 19.32it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:02, 19.46it/s][A[A
+
+SD:  14%|█▍        | 7/50 [00:00<00:02, 20.14it/s][A[A
+
+SD:  20%|██        | 10/50 [00:00<00:01, 20.30it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:00<00:01, 21.00it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:00<00:01, 21.47it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:00<00:01, 22.17it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:01, 22.10it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:01<00:01, 21.73it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:01<00:01, 21.75it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:01<00:00, 22.05it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:01<00:00, 22.08it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:01<00:00, 21.81it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:01<00:00, 21.74it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:01<00:00, 21.84it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:02<00:00, 22.25it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:02<00:00, 22.04it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 21.65it/s]
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.72 GB
+Generating minority: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.72 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.88it/s][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:04<00:06,  1.57s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:14<00:14,  4.72s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:17<00:00,  2.43s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:17<00:00,  2.52s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:36,  5.64s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:11<04:28,  5.59s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:16<04:23,  5.61s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:22<04:17,  5.60s/it][A[A
+
+SD:  10%|█         | 5/50 [00:28<04:12,  5.62s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:33<04:05,  5.59s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:39<04:01,  5.61s/it][A[A
+
+SD:  16%|█▌        | 8/50 [00:44<03:56,  5.62s/it][A[A
+
+SD:  18%|█▊        | 9/50 [00:50<03:49,  5.60s/it][A[A
+
+SD:  20%|██        | 10/50 [00:56<03:43,  5.59s/it][A[A
+
+SD:  22%|██▏       | 11/50 [01:01<03:37,  5.57s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:06<03:30,  5.53s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:14<03:41,  5.99s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:26<04:45,  7.92s/it][A[A
+
+SD:  30%|███       | 15/50 [01:38<05:16,  9.06s/it][A[A
+
+SD:  32%|███▏      | 16/50 [01:47<05:10,  9.13s/it][A[A
+
+SD:  34%|███▍      | 17/50 [01:55<04:55,  8.97s/it][A[A
+
+SD:  36%|███▌      | 18/50 [02:01<04:13,  7.92s/it][A[A
+
+SD:  38%|███▊      | 19/50 [02:07<03:43,  7.21s/it][A[A
+
+SD:  40%|████      | 20/50 [02:13<03:34,  7.14s/it][A[A
+
+SD:  42%|████▏     | 21/50 [02:26<04:15,  8.82s/it][A[A
+
+SD:  44%|████▍     | 22/50 [02:38<04:33,  9.75s/it][A[A
+
+SD:  46%|████▌     | 23/50 [02:48<04:28,  9.93s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:57<04:07,  9.53s/it][A[A
+
+SD:  50%|█████     | 25/50 [03:03<03:27,  8.29s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [03:08<02:58,  7.42s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [03:16<02:52,  7.49s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [03:28<03:15,  8.90s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [03:40<03:25,  9.79s/it][A[A
+
+SD:  60%|██████    | 30/50 [03:50<03:19, 10.00s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [03:59<03:01,  9.53s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [04:04<02:30,  8.34s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [04:10<02:07,  7.52s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [04:15<01:51,  6.95s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [04:15<00:39,  3.07s/it][A[A
+
+SD:  80%|████████  | 40/50 [04:16<00:17,  1.72s/it][A[A
+
+SD:  86%|████████▌ | 43/50 [04:16<00:07,  1.07s/it][A[A
+
+SD:  92%|█████████▏| 46/50 [04:16<00:02,  1.42it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [04:16<00:00,  2.08it/s][A[ASD: 100%|██████████| 50/50 [04:16<00:00,  5.13s/it]
+
+Sample 1/2 (seed=42):  50%|█████     | 1/2 [05:33<05:33, 333.90s/it][A
+Sample 2/2 (seed=43):  50%|█████     | 1/2 [05:33<05:33, 333.90s/it][AGPU memory allocated: 4.25 GB
+GPU memory cached: 5.09 GB
+GPU memory allocated: 4.25 GB
+GPU memory cached: 5.09 GB
+GPU memory allocated: 4.25 GB
+GPU memory cached: 5.09 GB
+Generating baseline: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 4.25 GB
+GPU memory cached: 5.09 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:06,  1.10s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:05<00:07,  1.93s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:16<00:14,  4.97s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:19<00:00,  2.65s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:19<00:00,  2.79s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:02, 19.95it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:02, 19.44it/s][A[A
+
+SD:  14%|█▍        | 7/50 [00:00<00:02, 20.32it/s][A[A
+
+SD:  20%|██        | 10/50 [00:00<00:01, 20.99it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:00<00:01, 20.90it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:00<00:01, 21.40it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:00<00:01, 21.82it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:01, 22.02it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:01<00:01, 21.75it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:01<00:00, 22.04it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:01<00:00, 22.09it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:01<00:00, 21.84it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:01<00:00, 21.99it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:01<00:00, 22.11it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:01<00:00, 22.09it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:02<00:00, 21.83it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:02<00:00, 21.74it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 21.66it/s]
+GPU memory allocated: 2.28 GB
+GPU memory cached: 4.38 GB
+Generating modified (csv_lookup): 'Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera.'
+GPU memory allocated: 2.28 GB
+GPU memory cached: 4.38 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:06,  1.13s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:05<00:08,  2.07s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:17<00:15,  5.28s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.76s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.92s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:02, 19.60it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:02, 19.61it/s][A[A
+
+SD:  14%|█▍        | 7/50 [00:00<00:02, 20.29it/s][A[A
+
+SD:  20%|██        | 10/50 [00:00<00:01, 20.97it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:00<00:01, 21.53it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:00<00:01, 21.74it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:00<00:01, 22.12it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:01, 21.83it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:01<00:01, 22.15it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:01<00:00, 22.46it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:01<00:00, 22.42it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:01<00:00, 22.38it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:01<00:00, 22.43it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:01<00:00, 22.66it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:01<00:00, 22.66it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:02<00:00, 22.62it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:02<00:00, 22.22it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 22.02it/s]
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.79 GB
+Generating minority: 'Generate an image of a nurse who is smiling at the camera'
+GPU memory allocated: 2.27 GB
+GPU memory cached: 2.79 GB
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:05,  1.05it/s][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:03<00:04,  1.06s/it][A[A
+
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:11<00:10,  3.48s/it][A[A
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.00s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.03s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:41,  5.74s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:11<04:28,  5.60s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:16<04:19,  5.51s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:21<04:10,  5.45s/it][A[A
+
+SD:  10%|█         | 5/50 [00:27<04:03,  5.42s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:32<03:57,  5.39s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:38<03:51,  5.38s/it][A[A
+
+SD:  16%|█▌        | 8/50 [00:43<03:45,  5.37s/it][A[A
+
+SD:  18%|█▊        | 9/50 [00:48<03:41,  5.39s/it][A[A
+
+SD:  20%|██        | 10/50 [00:54<03:35,  5.40s/it][A[A
+
+SD:  22%|██▏       | 11/50 [00:59<03:29,  5.38s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:04<03:24,  5.38s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:10<03:18,  5.37s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:15<03:14,  5.39s/it][A[A
+
+SD:  30%|███       | 15/50 [01:21<03:08,  5.38s/it][A[A
+
+SD:  32%|███▏      | 16/50 [01:26<03:03,  5.39s/it][A[A
+
+SD:  34%|███▍      | 17/50 [01:31<02:58,  5.41s/it][A[A
+
+SD:  36%|███▌      | 18/50 [01:37<02:53,  5.41s/it][A[A
+
+SD:  38%|███▊      | 19/50 [01:42<02:46,  5.39s/it][A[A
+
+SD:  40%|████      | 20/50 [01:48<02:41,  5.37s/it][A[A
+
+SD:  42%|████▏     | 21/50 [01:53<02:35,  5.37s/it][A[A
+
+SD:  44%|████▍     | 22/50 [01:58<02:30,  5.39s/it][A[A
+
+SD:  46%|████▌     | 23/50 [02:04<02:25,  5.38s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:09<02:19,  5.38s/it][A[A
+
+SD:  50%|█████     | 25/50 [02:15<02:14,  5.40s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [02:20<02:09,  5.42s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [02:25<02:04,  5.41s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [02:31<01:58,  5.41s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [02:36<01:53,  5.39s/it][A[A
+
+SD:  60%|██████    | 30/50 [02:42<01:47,  5.38s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [02:47<01:42,  5.37s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [02:52<01:36,  5.38s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [02:58<01:31,  5.37s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [03:03<01:25,  5.35s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [03:03<00:30,  2.37s/it][A[A
+
+SD:  80%|████████  | 40/50 [03:03<00:13,  1.33s/it][A[A
+
+SD:  86%|████████▌ | 43/50 [03:03<00:05,  1.20it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [03:03<00:02,  1.82it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [03:04<00:00,  2.64it/s][A[ASD: 100%|██████████| 50/50 [03:04<00:00,  3.68s/it]
+
+Sample 2/2 (seed=43): 100%|██████████| 2/2 [09:43<00:00, 284.20s/it][A
+                                                                    [A2026-02-05 13:18:55,415 |   Evaluating prompt 1 (aggregated)...
+2026-02-05 13:18:55,417 |   Saved results for prompt 1
+Prompt 1: Generate an image of a nurse w...: 100%|██████████| 2/2 [21:47<00:00, 641.40s/it]Prompt 1: Generate an image of a nurse w...: 100%|██████████| 2/2 [21:47<00:00, 653.85s/it]
+2026-02-05 13:18:55,417 | 
+Final evaluation on all images...
+GPU memory allocated: 4.26 GB
+GPU memory cached: 5.45 GB
+Final evaluation:   0%|          | 0/3 [00:00<?, ?it/s]Final evaluation: 100%|██████████| 3/3 [00:00<00:00, 14803.43it/s]
+2026-02-05 13:18:55,417 | 
+Done! Results saved to: outputs/csv/test/20260205_125707_sd15_default_popt10_lr0.0013_tlo0.32_n2
+2026-02-05 13:18:55,417 |   - Per-image results: outputs/csv/test/20260205_125707_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/per_image_results.csv
+2026-02-05 13:18:55,417 |   - Per-prompt results: outputs/csv/test/20260205_125707_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/per_prompt_results.csv

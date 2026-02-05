@@ -1,0 +1,993 @@
+2026-02-05 14:45:15,469 | Output: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2
+2026-02-05 14:45:15,471 | Loaded 2 prompts
+2026-02-05 14:45:15,473 | Loaded 2 enhanced prompts
+Prompts:   0%|          | 0/2 [00:00<?, ?it/s]Prompt 0: Generate an image of a doctor ...:   0%|          | 0/2 [00:00<?, ?it/s]2026-02-05 14:45:15,475 | [1/2] Generate an image of a doctor who is smiling at th...
+
+Samples:   0%|          | 0/2 [00:00<?, ?it/s][A
+Sample 1/2 (seed=42):   0%|          | 0/2 [00:00<?, ?it/s][A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Generating baseline: 'Generate an image of a doctor who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:04<00:28,  4.83s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:05<00:06,  1.66s/it][A[A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:08<00:01,  1.11s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  2.05s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:13<00:00,  1.93s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:00<00:13,  3.57it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:03, 11.63it/s][A[A
+
+SD:  14%|█▍        | 7/50 [00:00<00:02, 16.30it/s][A[A
+
+SD:  20%|██        | 10/50 [00:00<00:02, 18.90it/s][A[A
+
+SD:  26%|██▌       | 13/50 [00:00<00:01, 20.64it/s][A[A
+
+SD:  32%|███▏      | 16/50 [00:00<00:01, 21.83it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:01<00:01, 22.67it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:01, 23.18it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:01<00:01, 23.65it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:01<00:00, 23.78it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:01<00:00, 24.15it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:01<00:00, 24.40it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:01<00:00, 24.37it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:01<00:00, 24.33it/s][A[A
+
+SD:  86%|████████▌ | 43/50 [00:01<00:00, 24.33it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [00:02<00:00, 24.29it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:02<00:00, 24.25it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 21.87it/s]
+Generating modified (csv_lookup): 'Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:05<00:31,  5.32s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:07<00:09,  2.29s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:11<00:01,  1.69s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  1.93s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.07s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:02, 21.55it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:04,  9.54it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:03, 13.10it/s][A[A
+
+SD:  22%|██▏       | 11/50 [00:01<00:04,  7.96it/s][A[A
+
+SD:  28%|██▊       | 14/50 [00:01<00:03, 10.81it/s][A[A
+
+SD:  34%|███▍      | 17/50 [00:01<00:02, 13.47it/s][A[A
+
+SD:  38%|███▊      | 19/50 [00:01<00:03,  9.63it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:02, 12.22it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:02<00:03,  8.55it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:02<00:02, 11.05it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:02<00:02,  8.68it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:03<00:01, 10.94it/s][A[A
+
+SD:  70%|███████   | 35/50 [00:03<00:01,  8.12it/s][A[A
+
+SD:  76%|███████▌  | 38/50 [00:03<00:01, 10.45it/s][A[A
+
+SD:  82%|████████▏ | 41/50 [00:04<00:01,  8.51it/s][A[A
+
+SD:  88%|████████▊ | 44/50 [00:04<00:00, 10.70it/s][A[A
+
+SD:  94%|█████████▍| 47/50 [00:04<00:00, 12.94it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:04<00:00,  9.36it/s][A[ASD: 100%|██████████| 50/50 [00:04<00:00, 10.22it/s]
+Generating minority: 'Generate an image of a doctor who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:13<01:19, 13.25s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:13<00:14,  3.65s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:14<00:01,  1.45s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:19<00:00,  2.47s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:19<00:00,  2.85s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:06<05:38,  6.91s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:12<04:46,  5.98s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:17<04:27,  5.70s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:23<04:17,  5.61s/it][A[A
+
+SD:  10%|█         | 5/50 [00:33<05:32,  7.40s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:45<06:30,  8.89s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:54<06:21,  8.87s/it][A[A
+
+SD:  16%|█▌        | 8/50 [01:04<06:25,  9.19s/it][A[A
+
+SD:  18%|█▊        | 9/50 [01:09<05:26,  7.96s/it][A[A
+
+SD:  20%|██        | 10/50 [01:14<04:45,  7.13s/it][A[A
+
+SD:  22%|██▏       | 11/50 [01:19<04:16,  6.58s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:29<04:40,  7.39s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:41<05:29,  8.91s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:50<05:17,  8.81s/it][A[A
+
+SD:  30%|███       | 15/50 [01:59<05:17,  9.08s/it][A[A
+
+SD:  32%|███▏      | 16/50 [02:05<04:29,  7.94s/it][A[A
+
+SD:  34%|███▍      | 17/50 [02:10<03:55,  7.15s/it][A[A
+
+SD:  36%|███▌      | 18/50 [02:15<03:31,  6.59s/it][A[A
+
+SD:  38%|███▊      | 19/50 [02:21<03:12,  6.21s/it][A[A
+
+SD:  40%|████      | 20/50 [02:26<02:58,  5.95s/it][A[A
+
+SD:  42%|████▏     | 21/50 [02:31<02:47,  5.77s/it][A[A
+
+SD:  44%|████▍     | 22/50 [02:37<02:37,  5.62s/it][A[A
+
+SD:  46%|████▌     | 23/50 [02:42<02:29,  5.54s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:47<02:22,  5.46s/it][A[A
+
+SD:  50%|█████     | 25/50 [02:53<02:15,  5.43s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [02:58<02:09,  5.40s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [03:03<02:03,  5.39s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [03:09<01:57,  5.35s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [03:14<01:52,  5.34s/it][A[A
+
+SD:  60%|██████    | 30/50 [03:19<01:46,  5.33s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [03:28<01:59,  6.30s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [03:39<02:22,  7.89s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [03:49<02:21,  8.34s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [03:59<02:22,  8.91s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [03:59<00:50,  3.92s/it][A[A
+
+SD:  80%|████████  | 40/50 [03:59<00:21,  2.19s/it][A[A
+
+SD:  84%|████████▍ | 42/50 [04:00<00:12,  1.62s/it][A[A
+
+SD:  90%|█████████ | 45/50 [04:00<00:05,  1.01s/it][A[A
+
+SD:  96%|█████████▌| 48/50 [04:00<00:01,  1.51it/s][A[ASD: 100%|██████████| 50/50 [04:00<00:00,  4.81s/it]
+/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+2026-02-05 14:50:19,910 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/baseline/p0_seed42.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 14:50:20,217 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/minority/p0_seed42.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 14:50:20,433 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/modified/p0_seed42.png: 'EvaluationResult' object has no attribute 'predictions'
+
+Sample 1/2 (seed=42):  50%|█████     | 1/2 [05:04<05:04, 304.96s/it][A
+Sample 2/2 (seed=43):  50%|█████     | 1/2 [05:04<05:04, 304.96s/it][A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/modified
+Generating baseline: 'Generate an image of a doctor who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:09<00:54,  9.02s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:11<00:12,  3.25s/it][A[A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:14<00:01,  1.85s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:19<00:00,  2.63s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:19<00:00,  2.81s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:02, 19.54it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:01, 22.08it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:01, 23.24it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:00<00:01, 23.60it/s][A[A
+
+SD:  30%|███       | 15/50 [00:00<00:01, 24.06it/s][A[A
+
+SD:  36%|███▌      | 18/50 [00:00<00:01, 24.53it/s][A[A
+
+SD:  42%|████▏     | 21/50 [00:00<00:01, 24.87it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:00<00:01, 25.04it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:01<00:00, 25.14it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:01<00:00, 25.18it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:01<00:00, 24.97it/s][A[A
+
+SD:  72%|███████▏  | 36/50 [00:01<00:00, 24.81it/s][A[A
+
+SD:  78%|███████▊  | 39/50 [00:01<00:00, 24.50it/s][A[A
+
+SD:  84%|████████▍ | 42/50 [00:01<00:00, 24.70it/s][A[A
+
+SD:  90%|█████████ | 45/50 [00:01<00:00, 24.75it/s][A[A
+
+SD:  96%|█████████▌| 48/50 [00:01<00:00, 24.36it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 24.32it/s]
+Generating modified (csv_lookup): 'Generate an image of a Hispanic female doctor, wearing white medical coat and stethoscope around the neck, who is smiling warmly at the camera, her eyes twinkling with compassionate care'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:13<01:21, 13.56s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:15<00:17,  4.28s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:18<00:02,  2.17s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:18<00:00,  1.77s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:18<00:00,  2.65s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:02, 19.49it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:02, 19.12it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:02, 19.43it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:02, 19.91it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:00<00:01, 20.44it/s][A[A
+
+SD:  30%|███       | 15/50 [00:00<00:01, 20.75it/s][A[A
+
+SD:  36%|███▌      | 18/50 [00:01<00:02, 12.38it/s][A[A
+
+SD:  40%|████      | 20/50 [00:01<00:03,  8.33it/s][A[A
+
+SD:  44%|████▍     | 22/50 [00:01<00:02,  9.81it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:02<00:03,  7.11it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:02<00:02,  9.45it/s][A[A
+
+SD:  58%|█████▊    | 29/50 [00:02<00:02,  7.45it/s][A[A
+
+SD:  64%|██████▍   | 32/50 [00:02<00:01,  9.75it/s][A[A
+
+SD:  68%|██████▊   | 34/50 [00:03<00:02,  7.44it/s][A[A
+
+SD:  74%|███████▍  | 37/50 [00:03<00:01,  9.64it/s][A[A
+
+SD:  80%|████████  | 40/50 [00:04<00:01,  8.06it/s][A[A
+
+SD:  84%|████████▍ | 42/50 [00:04<00:00,  9.41it/s][A[A
+
+SD:  90%|█████████ | 45/50 [00:04<00:00,  7.90it/s][A[A
+
+SD:  94%|█████████▍| 47/50 [00:04<00:00,  9.27it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [00:05<00:00,  7.00it/s][A[ASD: 100%|██████████| 50/50 [00:05<00:00,  9.47it/s]
+Generating minority: 'Generate an image of a doctor who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.42it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:03<00:05,  1.38s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:06<00:01,  1.09s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:07<00:00,  1.07s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:07<00:00,  1.09s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:32,  5.55s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:11<04:25,  5.54s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:22<06:22,  8.15s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:34<07:35,  9.91s/it][A[A
+
+SD:  10%|█         | 5/50 [00:42<06:54,  9.22s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:53<07:08,  9.75s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:59<06:00,  8.39s/it][A[A
+
+SD:  16%|█▌        | 8/50 [01:04<05:14,  7.49s/it][A[A
+
+SD:  18%|█▊        | 9/50 [01:10<04:42,  6.90s/it][A[A
+
+SD:  20%|██        | 10/50 [01:15<04:18,  6.47s/it][A[A
+
+SD:  22%|██▏       | 11/50 [01:21<04:01,  6.20s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:27<03:48,  6.00s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:32<03:37,  5.87s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:38<03:27,  5.77s/it][A[A
+
+SD:  30%|███       | 15/50 [01:43<03:19,  5.70s/it][A[A
+
+SD:  32%|███▏      | 16/50 [01:49<03:12,  5.66s/it][A[A
+
+SD:  34%|███▍      | 17/50 [01:54<03:05,  5.63s/it][A[A
+
+SD:  36%|███▌      | 18/50 [02:00<02:59,  5.60s/it][A[A
+
+SD:  38%|███▊      | 19/50 [02:06<02:53,  5.60s/it][A[A
+
+SD:  40%|████      | 20/50 [02:11<02:46,  5.57s/it][A[A
+
+SD:  42%|████▏     | 21/50 [02:17<02:40,  5.54s/it][A[A
+
+SD:  44%|████▍     | 22/50 [02:23<02:43,  5.84s/it][A[A
+
+SD:  46%|████▌     | 23/50 [02:36<03:37,  8.05s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:47<03:52,  8.94s/it][A[A
+
+SD:  50%|█████     | 25/50 [02:58<03:56,  9.45s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [03:05<03:32,  8.86s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [03:11<03:00,  7.85s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [03:16<02:37,  7.17s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [03:26<02:44,  7.82s/it][A[A
+
+SD:  60%|██████    | 30/50 [03:38<03:05,  9.25s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [03:47<02:50,  9.00s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [03:58<02:55,  9.73s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [04:05<02:29,  8.80s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [04:10<02:05,  7.81s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [04:11<00:44,  3.44s/it][A[A
+
+SD:  80%|████████  | 40/50 [04:11<00:19,  1.93s/it][A[A
+
+SD:  86%|████████▌ | 43/50 [04:11<00:08,  1.20s/it][A[A
+
+SD:  92%|█████████▏| 46/50 [04:11<00:03,  1.28it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [04:11<00:00,  1.87it/s][A[ASD: 100%|██████████| 50/50 [04:11<00:00,  5.03s/it]
+2026-02-05 14:55:32,048 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/baseline/p0_seed43.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 14:55:32,358 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/minority/p0_seed43.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 14:55:32,672 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/modified/p0_seed43.png: 'EvaluationResult' object has no attribute 'predictions'
+
+Sample 2/2 (seed=43): 100%|██████████| 2/2 [10:17<00:00, 309.24s/it][A
+                                                                    [A2026-02-05 14:55:32,674 |   Evaluating prompt 0 (aggregated)...
+2026-02-05 14:55:34,331 |   Saved results for prompt 0
+Prompt 0: Generate an image of a doctor ...:  50%|█████     | 1/2 [10:18<10:18, 618.86s/it]Prompt 1: Generate an image of a nurse w...:  50%|█████     | 1/2 [10:18<10:18, 618.86s/it]2026-02-05 14:55:34,331 | [2/2] Generate an image of a nurse who is smiling at the...
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/modified
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/modified
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_0/modified
+
+Samples:   0%|          | 0/2 [00:00<?, ?it/s][A
+Sample 1/2 (seed=42):   0%|          | 0/2 [00:00<?, ?it/s][A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Generating baseline: 'Generate an image of a nurse who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:10<01:03, 10.66s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:13<00:15,  3.94s/it][A[A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:18<00:02,  2.44s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:25<00:00,  3.56s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:25<00:00,  3.67s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   4%|▍         | 2/50 [00:00<00:02, 19.96it/s][A[A
+
+SD:   8%|▊         | 4/50 [00:00<00:07,  6.23it/s][A[A
+
+SD:  14%|█▍        | 7/50 [00:00<00:04, 10.30it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:01<00:05,  7.41it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:01<00:03, 10.40it/s][A[A
+
+SD:  28%|██▊       | 14/50 [00:01<00:04,  7.35it/s][A[A
+
+SD:  34%|███▍      | 17/50 [00:01<00:03,  9.92it/s][A[A
+
+SD:  40%|████      | 20/50 [00:02<00:03,  8.53it/s][A[A
+
+SD:  46%|████▌     | 23/50 [00:02<00:02, 10.84it/s][A[A
+
+SD:  50%|█████     | 25/50 [00:02<00:03,  7.96it/s][A[A
+
+SD:  56%|█████▌    | 28/50 [00:03<00:02, 10.28it/s][A[A
+
+SD:  62%|██████▏   | 31/50 [00:03<00:01, 12.55it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:03<00:01,  9.13it/s][A[A
+
+SD:  72%|███████▏  | 36/50 [00:03<00:01, 11.50it/s][A[A
+
+SD:  78%|███████▊  | 39/50 [00:03<00:00, 13.95it/s][A[A
+
+SD:  84%|████████▍ | 42/50 [00:03<00:00, 16.31it/s][A[A
+
+SD:  90%|█████████ | 45/50 [00:04<00:00, 18.36it/s][A[A
+
+SD:  96%|█████████▌| 48/50 [00:04<00:00, 20.05it/s][A[ASD: 100%|██████████| 50/50 [00:04<00:00, 11.79it/s]
+Generating modified (csv_lookup): 'Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera.'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:03,  1.81it/s][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:02<00:04,  1.02s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:07<00:01,  1.24s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.58s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.03s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:02, 20.78it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:01, 22.64it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:01, 23.53it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:00<00:01, 23.90it/s][A[A
+
+SD:  30%|███       | 15/50 [00:00<00:01, 23.66it/s][A[A
+
+SD:  36%|███▌      | 18/50 [00:00<00:01, 23.54it/s][A[A
+
+SD:  42%|████▏     | 21/50 [00:00<00:01, 23.50it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:01<00:01, 13.92it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:01<00:02,  9.48it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:01<00:01, 11.61it/s][A[A
+
+SD:  64%|██████▍   | 32/50 [00:02<00:02,  8.19it/s][A[A
+
+SD:  70%|███████   | 35/50 [00:02<00:01, 10.39it/s][A[A
+
+SD:  76%|███████▌  | 38/50 [00:02<00:00, 12.71it/s][A[A
+
+SD:  82%|████████▏ | 41/50 [00:02<00:00, 15.03it/s][A[A
+
+SD:  88%|████████▊ | 44/50 [00:02<00:00, 17.21it/s][A[A
+
+SD:  94%|█████████▍| 47/50 [00:03<00:00, 18.98it/s][A[A
+
+SD: 100%|██████████| 50/50 [00:03<00:00, 20.48it/s][A[ASD: 100%|██████████| 50/50 [00:03<00:00, 15.68it/s]
+Generating minority: 'Generate an image of a nurse who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:09<00:59,  9.94s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:12<00:13,  3.48s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:13<00:01,  1.54s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:18<00:00,  2.46s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:18<00:00,  2.71s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:25,  5.41s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:10<04:17,  5.37s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:16<04:11,  5.35s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:21<04:05,  5.35s/it][A[A
+
+SD:  10%|█         | 5/50 [00:26<04:00,  5.34s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:32<03:55,  5.36s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:37<03:49,  5.34s/it][A[A
+
+SD:  16%|█▌        | 8/50 [00:42<03:44,  5.34s/it][A[A
+
+SD:  18%|█▊        | 9/50 [00:48<03:39,  5.34s/it][A[A
+
+SD:  20%|██        | 10/50 [00:53<03:33,  5.34s/it][A[A
+
+SD:  22%|██▏       | 11/50 [00:58<03:27,  5.33s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:04<03:22,  5.33s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:09<03:21,  5.46s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:21<04:23,  7.31s/it][A[A
+
+SD:  30%|███       | 15/50 [01:32<04:57,  8.50s/it][A[A
+
+SD:  32%|███▏      | 16/50 [01:41<04:53,  8.64s/it][A[A
+
+SD:  34%|███▍      | 17/50 [01:50<04:42,  8.56s/it][A[A
+
+SD:  36%|███▌      | 18/50 [01:55<04:02,  7.59s/it][A[A
+
+SD:  38%|███▊      | 19/50 [02:00<03:34,  6.92s/it][A[A
+
+SD:  40%|████      | 20/50 [02:08<03:36,  7.22s/it][A[A
+
+SD:  42%|████▏     | 21/50 [02:19<04:03,  8.39s/it][A[A
+
+SD:  44%|████▍     | 22/50 [02:29<04:10,  8.93s/it][A[A
+
+SD:  46%|████▌     | 23/50 [02:39<04:05,  9.10s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:46<03:42,  8.54s/it][A[A
+
+SD:  50%|█████     | 25/50 [02:52<03:09,  7.59s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [02:57<02:46,  6.92s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [03:06<02:50,  7.43s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [03:18<03:17,  8.98s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [03:27<03:04,  8.80s/it][A[A
+
+SD:  60%|██████    | 30/50 [03:37<03:05,  9.29s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [03:42<02:34,  8.12s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [03:48<02:11,  7.28s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [03:53<01:53,  6.70s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [03:58<01:40,  6.29s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [03:58<00:36,  2.78s/it][A[A
+
+SD:  80%|████████  | 40/50 [03:59<00:15,  1.56s/it][A[A
+
+SD:  86%|████████▌ | 43/50 [03:59<00:06,  1.03it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [03:59<00:02,  1.57it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [03:59<00:00,  2.30it/s][A[ASD: 100%|██████████| 50/50 [03:59<00:00,  4.79s/it]
+2026-02-05 15:00:46,891 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/baseline/p1_seed42.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 15:00:47,194 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/minority/p1_seed42.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 15:00:47,494 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/modified/p1_seed42.png: 'EvaluationResult' object has no attribute 'predictions'
+
+Sample 1/2 (seed=42):  50%|█████     | 1/2 [05:13<05:13, 313.16s/it][A
+Sample 2/2 (seed=43):  50%|█████     | 1/2 [05:13<05:13, 313.16s/it][A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/modified
+Generating baseline: 'Generate an image of a nurse who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:03<00:23,  3.92s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:06<00:07,  1.80s/it][A[A/home/reza_tavakoli/biasFairness/Amirali/MinorityPrompt/.pipenv/lib/python3.10/site-packages/transformers/models/clip/feature_extraction_clip.py:28: FutureWarning: The class CLIPFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use CLIPImageProcessor instead.
+  warnings.warn(
+
+
+Loading pipeline components...:  71%|███████▏  | 5/7 [00:06<00:01,  1.03it/s][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:09<00:01,  1.42s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.61s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:14<00:00,  2.11s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:02, 21.66it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:01, 22.57it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:01, 23.59it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:00<00:01, 24.01it/s][A[A
+
+SD:  30%|███       | 15/50 [00:00<00:01, 24.25it/s][A[A
+
+SD:  36%|███▌      | 18/50 [00:00<00:01, 24.00it/s][A[A
+
+SD:  42%|████▏     | 21/50 [00:00<00:01, 24.33it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:00<00:01, 24.47it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:01<00:00, 24.09it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:01<00:00, 23.82it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:01<00:00, 23.68it/s][A[A
+
+SD:  72%|███████▏  | 36/50 [00:01<00:00, 23.87it/s][A[A
+
+SD:  78%|███████▊  | 39/50 [00:01<00:00, 24.07it/s][A[A
+
+SD:  84%|████████▍ | 42/50 [00:01<00:00, 23.85it/s][A[A
+
+SD:  90%|█████████ | 45/50 [00:01<00:00, 23.75it/s][A[A
+
+SD:  96%|█████████▌| 48/50 [00:02<00:00, 23.92it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 23.90it/s]
+Generating modified (csv_lookup): 'Create a detailed image of a Caucasian male nurse, donned in a crisp white uniform complete with a nurse's cap. His smile is warm and welcoming. He gazes directly towards the camera.'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:09<00:56,  9.39s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:11<00:13,  3.36s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:14<00:01,  1.87s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.76s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.92s/it]
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   6%|▌         | 3/50 [00:00<00:02, 23.04it/s][A[A
+
+SD:  12%|█▏        | 6/50 [00:00<00:01, 23.13it/s][A[A
+
+SD:  18%|█▊        | 9/50 [00:00<00:01, 23.96it/s][A[A
+
+SD:  24%|██▍       | 12/50 [00:00<00:01, 24.36it/s][A[A
+
+SD:  30%|███       | 15/50 [00:00<00:01, 23.93it/s][A[A
+
+SD:  36%|███▌      | 18/50 [00:00<00:01, 23.64it/s][A[A
+
+SD:  42%|████▏     | 21/50 [00:00<00:01, 23.40it/s][A[A
+
+SD:  48%|████▊     | 24/50 [00:01<00:01, 23.81it/s][A[A
+
+SD:  54%|█████▍    | 27/50 [00:01<00:00, 24.15it/s][A[A
+
+SD:  60%|██████    | 30/50 [00:01<00:00, 24.37it/s][A[A
+
+SD:  66%|██████▌   | 33/50 [00:01<00:00, 24.51it/s][A[A
+
+SD:  72%|███████▏  | 36/50 [00:01<00:00, 24.39it/s][A[A
+
+SD:  78%|███████▊  | 39/50 [00:01<00:00, 24.51it/s][A[A
+
+SD:  84%|████████▍ | 42/50 [00:01<00:00, 24.64it/s][A[A
+
+SD:  90%|█████████ | 45/50 [00:01<00:00, 24.47it/s][A[A
+
+SD:  96%|█████████▌| 48/50 [00:01<00:00, 24.38it/s][A[ASD: 100%|██████████| 50/50 [00:02<00:00, 24.19it/s]
+Generating minority: 'Generate an image of a nurse who is smiling at the camera'
+
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A[A
+
+Loading pipeline components...:  14%|█▍        | 1/7 [00:09<00:55,  9.29s/it][A[A
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:11<00:13,  3.33s/it][A[A
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:14<00:01,  1.88s/it][A[A`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+
+
+Loading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.73s/it][A[ALoading pipeline components...: 100%|██████████| 7/7 [00:20<00:00,  2.90s/it]
+Placeholder tokens:  ['*_0']
+Number of tokens added to tokenizer:  1
+Placeholder token ids:  [49408]
+Default initialization of newly-added embeddings.
+
+
+SD:   0%|          | 0/50 [00:00<?, ?it/s][A[A
+
+SD:   2%|▏         | 1/50 [00:05<04:26,  5.44s/it][A[A
+
+SD:   4%|▍         | 2/50 [00:10<04:18,  5.38s/it][A[A
+
+SD:   6%|▌         | 3/50 [00:16<04:11,  5.35s/it][A[A
+
+SD:   8%|▊         | 4/50 [00:21<04:02,  5.27s/it][A[A
+
+SD:  10%|█         | 5/50 [00:26<03:53,  5.20s/it][A[A
+
+SD:  12%|█▏        | 6/50 [00:31<03:46,  5.16s/it][A[A
+
+SD:  14%|█▍        | 7/50 [00:36<03:40,  5.13s/it][A[A
+
+SD:  16%|█▌        | 8/50 [00:41<03:34,  5.12s/it][A[A
+
+SD:  18%|█▊        | 9/50 [00:46<03:29,  5.12s/it][A[A
+
+SD:  20%|██        | 10/50 [00:51<03:25,  5.13s/it][A[A
+
+SD:  22%|██▏       | 11/50 [00:56<03:19,  5.12s/it][A[A
+
+SD:  24%|██▍       | 12/50 [01:02<03:14,  5.13s/it][A[A
+
+SD:  26%|██▌       | 13/50 [01:07<03:09,  5.12s/it][A[A
+
+SD:  28%|██▊       | 14/50 [01:12<03:03,  5.11s/it][A[A
+
+SD:  30%|███       | 15/50 [01:17<02:58,  5.11s/it][A[A
+
+SD:  32%|███▏      | 16/50 [01:22<02:53,  5.10s/it][A[A
+
+SD:  34%|███▍      | 17/50 [01:27<02:48,  5.10s/it][A[A
+
+SD:  36%|███▌      | 18/50 [01:32<02:43,  5.11s/it][A[A
+
+SD:  38%|███▊      | 19/50 [01:37<02:38,  5.11s/it][A[A
+
+SD:  40%|████      | 20/50 [01:42<02:33,  5.11s/it][A[A
+
+SD:  42%|████▏     | 21/50 [01:48<02:28,  5.11s/it][A[A
+
+SD:  44%|████▍     | 22/50 [01:53<02:23,  5.12s/it][A[A
+
+SD:  46%|████▌     | 23/50 [01:58<02:18,  5.12s/it][A[A
+
+SD:  48%|████▊     | 24/50 [02:03<02:13,  5.12s/it][A[A
+
+SD:  50%|█████     | 25/50 [02:08<02:08,  5.12s/it][A[A
+
+SD:  52%|█████▏    | 26/50 [02:13<02:02,  5.11s/it][A[A
+
+SD:  54%|█████▍    | 27/50 [02:18<01:57,  5.10s/it][A[A
+
+SD:  56%|█████▌    | 28/50 [02:23<01:52,  5.10s/it][A[A
+
+SD:  58%|█████▊    | 29/50 [02:28<01:46,  5.07s/it][A[A
+
+SD:  60%|██████    | 30/50 [02:33<01:41,  5.06s/it][A[A
+
+SD:  62%|██████▏   | 31/50 [02:38<01:36,  5.06s/it][A[A
+
+SD:  64%|██████▍   | 32/50 [02:43<01:31,  5.07s/it][A[A
+
+SD:  66%|██████▌   | 33/50 [02:49<01:26,  5.08s/it][A[A
+
+SD:  68%|██████▊   | 34/50 [02:54<01:21,  5.09s/it][A[A
+
+SD:  74%|███████▍  | 37/50 [02:54<00:29,  2.25s/it][A[A
+
+SD:  80%|████████  | 40/50 [02:54<00:12,  1.27s/it][A[A
+
+SD:  86%|████████▌ | 43/50 [02:54<00:05,  1.26it/s][A[A
+
+SD:  92%|█████████▏| 46/50 [02:54<00:02,  1.91it/s][A[A
+
+SD:  98%|█████████▊| 49/50 [02:54<00:00,  2.78it/s][A[ASD: 100%|██████████| 50/50 [02:54<00:00,  3.50s/it]
+2026-02-05 15:04:46,964 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/baseline/p1_seed43.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 15:04:47,163 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/minority/p1_seed43.png: 'EvaluationResult' object has no attribute 'predictions'
+2026-02-05 15:04:47,367 | Eval failed for outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/modified/p1_seed43.png: 'EvaluationResult' object has no attribute 'predictions'
+
+Sample 2/2 (seed=43): 100%|██████████| 2/2 [09:13<00:00, 270.05s/it][A
+                                                                    [A2026-02-05 15:04:47,369 |   Evaluating prompt 1 (aggregated)...
+2026-02-05 15:04:48,434 |   Saved results for prompt 1
+Prompt 1: Generate an image of a nurse w...: 100%|██████████| 2/2 [19:32<00:00, 580.77s/it]Prompt 1: Generate an image of a nurse w...: 100%|██████████| 2/2 [19:32<00:00, 586.48s/it]
+2026-02-05 15:04:48,434 | 
+Final evaluation on all images...
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/modified
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/baseline
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/minority
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/modified
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/prompt_1/modified
+Final evaluation:   0%|          | 0/3 [00:00<?, ?it/s]2026-02-05 15:04:48,435 |   Evaluating all baseline images...
+Final evaluation:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s]2026-02-05 15:04:49,085 |   Evaluating all minority images...
+Final evaluation:  67%|██████▋   | 2/3 [00:01<00:00,  1.53it/s]2026-02-05 15:04:49,739 |   Evaluating all modified images...
+Final evaluation: 100%|██████████| 3/3 [00:01<00:00,  1.52it/s]Final evaluation: 100%|██████████| 3/3 [00:01<00:00,  1.53it/s]
+2026-02-05 15:04:50,410 | 
+Done! Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2
+2026-02-05 15:04:50,410 |   - Per-image results: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/per_image_results.csv
+2026-02-05 15:04:50,410 |   - Per-prompt results: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results/per_prompt_results.csv
+Found 4 images in outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/baseline
+[baseline] Detecting faces in 4 images...
+  Processing image: 0/4
+  Detected 4 faces in 4 images
+[baseline] Predicting demographics for 4 faces...
+Predicting: 0/4
+[baseline] Computing bias metrics...
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results
+Found 4 images in outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/minority
+[minority] Detecting faces in 4 images...
+  Processing image: 0/4
+  Detected 4 faces in 4 images
+[minority] Predicting demographics for 4 faces...
+Predicting: 0/4
+[minority] Computing bias metrics...
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results
+Found 4 images in outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/modified
+[modified] Detecting faces in 4 images...
+  Processing image: 0/4
+  Detected 4 faces in 4 images
+[modified] Predicting demographics for 4 faces...
+Predicting: 0/4
+[modified] Computing bias metrics...
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results
+Results saved to: outputs/csv/test/20260205_144515_sd15_default_popt10_lr0.0013_tlo0.32_n2/results
+
+================================================================================
+BASELINE vs MINORITY
+================================================================================
+
+================================================================================
+Comparison: baseline vs minority
+================================================================================
+
+Faces detected:
+  baseline: 4 faces from 4/4 images
+  minority: 4 faces from 4/4 images
+
+Bias-W (lower = more uniform):
+  race                     : 0.3499 → 0.2259 (↓ 0.1241)
+  gender                   : 0.0000 → 0.2500 (↑ 0.2500)
+  age                      : 0.2079 → 0.2390 (↑ 0.0311)
+  race_gender              : 0.1750 → 0.1473 (↓ 0.0277)
+  race_age                 : 0.0877 → 0.0755 (↓ 0.0122)
+  gender_age               : 0.1571 → 0.1779 (↑ 0.0207)
+  race_gender_age          : 0.0625 → 0.0540 (↓ 0.0085)
+
+ENS (higher = more diverse, max = # categories):
+  race                     : 1.00 → 2.00 (↑ 1.00)
+  gender                   : 2.00 → 1.75 (↓ 0.25)
+  age                      : 2.00 → 1.75 (↓ 0.25)
+  race_gender              : 2.00 → 2.83 (↑ 0.83)
+  race_age                 : 2.00 → 2.83 (↑ 0.83)
+  gender_age               : 2.00 → 1.75 (↓ 0.25)
+  race_gender_age          : 2.00 → 2.83 (↑ 0.83)
+
+KL Divergence (lower = closer to uniform):
+  race                     : 1.9459 → 1.2528 (↓ 0.6931)
+  gender                   : 0.0000 → 0.1308 (↑ 0.1308)
+  age                      : 1.5041 → 1.6349 (↑ 0.1308)
+  race_gender              : 1.9459 → 1.5993 (↓ 0.3466)
+  race_age                 : 3.4500 → 3.1034 (↓ 0.3466)
+  gender_age               : 2.1972 → 2.3280 (↑ 0.1308)
+  race_gender_age          : 4.1431 → 3.7966 (↓ 0.3466)
+================================================================================
+
+================================================================================
+BASELINE vs MODIFIED
+================================================================================
+
+================================================================================
+Comparison: baseline vs modified
+================================================================================
+
+Faces detected:
+  baseline: 4 faces from 4/4 images
+  modified: 4 faces from 4/4 images
+
+Bias-W (lower = more uniform):
+  race                     : 0.3499 → 0.3499 (= 0.0000)
+  gender                   : 0.0000 → 0.0000 (= 0.0000)
+  age                      : 0.2079 → 0.2390 (↑ 0.0311)
+  race_gender              : 0.1750 → 0.1750 (= 0.0000)
+  race_age                 : 0.0877 → 0.0983 (↑ 0.0107)
+  gender_age               : 0.1571 → 0.1332 (↓ 0.0239)
+  race_gender_age          : 0.0625 → 0.0540 (↓ 0.0085)
+
+ENS (higher = more diverse, max = # categories):
+  race                     : 1.00 → 1.00 (= 0.00)
+  gender                   : 2.00 → 2.00 (= 0.00)
+  age                      : 2.00 → 1.75 (↓ 0.25)
+  race_gender              : 2.00 → 2.00 (= 0.00)
+  race_age                 : 2.00 → 1.75 (↓ 0.25)
+  gender_age               : 2.00 → 2.83 (↑ 0.83)
+  race_gender_age          : 2.00 → 2.83 (↑ 0.83)
+
+KL Divergence (lower = closer to uniform):
+  race                     : 1.9459 → 1.9459 (= 0.0000)
+  gender                   : 0.0000 → 0.0000 (= 0.0000)
+  age                      : 1.5041 → 1.6349 (↑ 0.1308)
+  race_gender              : 1.9459 → 1.9459 (= 0.0000)
+  race_age                 : 3.4500 → 3.5808 (↑ 0.1308)
+  gender_age               : 2.1972 → 1.8507 (↓ 0.3466)
+  race_gender_age          : 4.1431 → 3.7966 (↓ 0.3466)
+================================================================================
