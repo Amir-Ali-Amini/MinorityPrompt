@@ -17,7 +17,6 @@ import copy
 import torch
 from torchvision.utils import save_image
 from munch import munchify
-from utils.maintain import clean_gpu
 
 # Add parent directory to path for imports
 _SCRIPT_DIR = Path(__file__).parent.absolute()
@@ -218,7 +217,6 @@ class MinorityGenerator:
         self._set_seed(seed)
 
         # Need fresh solver for each generation to reset tokenizer
-        clean_gpu()
         solver = self._get_solver()
 
         model = self.model_config.model
@@ -252,7 +250,6 @@ class MinorityGenerator:
         self._set_seed(seed)
 
         # Need fresh solver for each generation to reset tokenizer
-        clean_gpu()
         solver = self._get_solver()
 
         model = self.model_config.model
@@ -300,7 +297,6 @@ class MinorityGenerator:
             model=self.model_config.model,
             baseline_prompt=prompt,
         )
-        clean_gpu()
         # Configuration for no optimization
         baseline_popt = PromptOptConfig.disabled().to_dict()
 
@@ -313,7 +309,6 @@ class MinorityGenerator:
         if modifier and isinstance(modifier, NegativePromptModifier):
             effective_null_prompt = modifier.negative_prompt
 
-        clean_gpu()
         # 1. Generate baseline
         if generate_baseline:
             print(f"Generating baseline: '{prompt}'")
@@ -324,7 +319,6 @@ class MinorityGenerator:
                 seed=seed,
             )
             result.baseline_prompt = prompt
-        clean_gpu()
         # 2. Generate with modifier
         if modifier is not None:
             modified_prompt = modifier.modify(prompt)
@@ -339,7 +333,6 @@ class MinorityGenerator:
             )
             result.modified_prompt = modified_prompt
             result.modifier_name = modifier.name
-        clean_gpu()
         # 3. Generate with MinorityPrompt
         if generate_minority:
             print(f"Generating minority: '{prompt}'")
@@ -350,7 +343,6 @@ class MinorityGenerator:
                 seed=seed,
             )
             result.minority_prompt = prompt  # Same prompt, different method
-        clean_gpu()
         return result
 
     def generate_batch(
@@ -389,7 +381,6 @@ class MinorityGenerator:
             )
             for prompt in prompts
         ]
-        clean_gpu()
         # Configuration for no optimization
         baseline_popt = PromptOptConfig.disabled().to_dict()
 
@@ -402,7 +393,6 @@ class MinorityGenerator:
         if modifier and isinstance(modifier, NegativePromptModifier):
             effective_null_prompt = modifier.negative_prompt
 
-        clean_gpu()
         # 1. Generate baseline
         if generate_baseline:
             b_results = self._generate_batch(
@@ -414,7 +404,6 @@ class MinorityGenerator:
             for idx, res in enumerate(b_results):
                 results[idx].baseline = res
                 results[idx].baseline_prompt = prompts[idx]
-        clean_gpu()
         # 2. Generate with modifier
         if modifier is not None:
             modified_prompts = [modifier.modify(prompt) for prompt in prompts]
@@ -430,7 +419,6 @@ class MinorityGenerator:
                 results[idx].modified = res
                 results[idx].modified_prompt = modified_prompts[idx]
                 results[idx].modifier_name = modifier.name
-        clean_gpu()
         # 3. Generate with MinorityPrompt
         if generate_minority:
             minority_results = self._generate_batch(
@@ -442,7 +430,6 @@ class MinorityGenerator:
             for idx, res in enumerate(minority_results):
                 results[idx].minority = res
                 results[idx].minority_prompt = prompts[idx]
-        clean_gpu()
         return results
 
     # def generate_batch(

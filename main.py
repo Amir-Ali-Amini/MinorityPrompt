@@ -13,4 +13,4 @@ if __name__ == "__main__":
         n_samples=1,
         seed=42,
     )
-    sharif_task(use_lightning=True)
+    # sharif_task(use_lightning=True)
