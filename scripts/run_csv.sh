@@ -19,21 +19,21 @@ mkdir -p logs/test
 # %Y%m%d_%H%M%S gives format like 20240115_143052
 timestamp=$(date +%Y%m%d_%H%M%S)
 
-# Run SD 1.5 on GPU 0
-# CUDA_VISIBLE_DEVICES=0 python3 csv_runner.py \
-#     --model sd15 \
-#     --t-lo ${t_lo} \
-#     --original_csv "./Task/sample_enhanced_prompts.csv" \
-#     --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
-#     --prompt_col "prompt" \
-#     --enhanced_col "modified_prompts" \
-#     --n-samples ${N} \
-#     --p-opt-lr ${lr} \
---output-dir "./outputs/csv/main" \
-#     > logs/csv/main/sd15_${timestamp}.log 2>&1 &
+Run SD 1.5 on GPU 0
+CUDA_VISIBLE_DEVICES=0 python3 csv_runner.py \
+    --model sd15 \
+    --t-lo ${0.32} \
+    --original_csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt_col "prompt" \
+    --enhanced_col "modified_prompts" \
+    --n-samples ${N} \
+    --p-opt-lr ${0.0013} \
+    --output-dir "./outputs/csv/main" \
+    > logs/csv/main/sd15_${timestamp}.log 2>&1 &
 
-# pid_sd15=$!
-# echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
+pid_sd15=$!
+echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 
 # Run SD 2.0 on GPU 1
 # CUDA_VISIBLE_DEVICES=1 python3 csv_runner.py \
@@ -45,7 +45,7 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 #     --enhanced_col "modified_prompts" \
 #     --n-samples ${N} \
 #     --p-opt-lr ${lr} \
---output-dir "./outputs/csv/main" \
+#     --output-dir "./outputs/csv/main" \
 #     > logs/csv/main/sd20_${timestamp}.log 2>&1 &
 
 # # Store the process ID of the SD 2.0 job

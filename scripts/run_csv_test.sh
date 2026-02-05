@@ -29,7 +29,7 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 #     --enhanced_col "modified_prompts" \
 #     --n-samples ${N} \
 #     --p-opt-lr ${lr} \
---output-dir "./outputs/csv/test" \
+# --output-dir "./outputs/csv/test" \
 #     > logs/csv/test/sd15_${timestamp}.log 2>&1 &
 
 # pid_sd15=$!
@@ -45,7 +45,7 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 #     --enhanced_col "modified_prompts" \
 #     --n-samples ${N} \
 #     --p-opt-lr ${lr} \
---output-dir "./outputs/csv/test" \
+# --output-dir "./outputs/csv/test" \
 #     > logs/csv/test/sd20_${timestamp}.log 2>&1 &
 
 # # Store the process ID of the SD 2.0 job

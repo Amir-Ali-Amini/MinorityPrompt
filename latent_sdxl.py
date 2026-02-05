@@ -600,13 +600,13 @@ class SDXL:
         )
 
         # turn the grad off
-        for p in self.text_enc_1.parameters():
-            p.requires_grad_(False)
-        for p in self.text_enc_2.parameters():
-            p.requires_grad_(False)
+        # for p in self.text_enc_1.parameters():
+        #     p.requires_grad_(False)
+        # for p in self.text_enc_2.parameters():
+        #     p.requires_grad_(False)
 
-        self.text_enc_1.get_input_embeddings().weight.requires_grad_(True)
-        self.text_enc_2.get_input_embeddings().weight.requires_grad_(True)
+        # self.text_enc_1.get_input_embeddings().weight.requires_grad_(True)
+        # self.text_enc_2.get_input_embeddings().weight.requires_grad_(True)
         # --turn the grad off
 
         for i in range(popt_kwargs["p_opt_iter"]):
@@ -625,13 +625,13 @@ class SDXL:
             # add noise
             rand_noise = torch.randn_like(noise_pred, device=noise_pred.device)
             zs = at_mg.sqrt() * z0t + (1 - at_mg).sqrt() * rand_noise
-            # _, noise_pred_s = self.predict_noise(
-            #     zs, t_mg, None, prompt_embeds_base.detach(), add_cond_kwargs_base
-            # )
-            with torch.no_grad():
-                _, noise_pred_s = self.predict_noise(
-                    zs, t_mg, None, prompt_embeds_base, add_cond_kwargs_base
-                )
+            _, noise_pred_s = self.predict_noise(
+                zs, t_mg, None, prompt_embeds_base.detach(), add_cond_kwargs_base
+            )
+            # with torch.no_grad():
+            #     _, noise_pred_s = self.predict_noise(
+            #         zs, t_mg, None, prompt_embeds_base, add_cond_kwargs_base
+            #     )
 
             # tweedie (x0doublehat)
             z0s = (zs - (1 - at_mg).sqrt() * noise_pred_s) / at_mg.sqrt()
