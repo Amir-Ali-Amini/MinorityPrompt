@@ -519,6 +519,8 @@ class SDXL:
         assert "_" in placeholder_string and len(placeholder_string.split("_")) == 2
         placeholder_symbol = placeholder_string.split("_")[0]
 
+        torch.cuda.empty_cache()
+
         decay_rate = popt_kwargs["lr_decay_rate"]
         num_opt_tokens = popt_kwargs["num_opt_tokens"]
 
@@ -608,15 +610,10 @@ class SDXL:
         # --turn the grad off
 
         for i in range(popt_kwargs["p_opt_iter"]):
-            # add_cond_kwargs["text_embeds"] = add_cond_kwargs["text_embeds"][
-            #     -1
-            # ].unsqueeze(0)
-            # add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"][-1].unsqueeze(0)
-            add_cond_kwargs["text_embeds"] = add_cond_kwargs["text_embeds"].detach()
-            add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"].detach()
-            null_prompt_embeds, prompt_embeds, add_cond_kwargs = (
-                self.get_embed_from_prompt12(prompt1, prompt2)
-            )
+            add_cond_kwargs["text_embeds"] = add_cond_kwargs["text_embeds"][
+                -1
+            ].unsqueeze(0)
+            add_cond_kwargs["time_ids"] = add_cond_kwargs["time_ids"][-1].unsqueeze(0)
 
             _, noise_pred = self.predict_noise(
                 zt, t, None, prompt_embeds, add_cond_kwargs
@@ -921,6 +918,10 @@ class SDXLLightning(SDXL):
         unet = UNet2DConditionModel.from_config(base_model_key, subfolder="unet").to(
             "cuda", torch.float16
         )
+
+        # ------------------------------
+        self.unet.enable_gradient_checkpointing()
+        # ------------------------------
         ext = os.path.splitext(light_model_ckpt)[1]
         if ext == ".safetensors":
             state_dict = load_file(light_model_ckpt)
