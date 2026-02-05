@@ -20,17 +20,17 @@ mkdir -p logs/test
 timestamp=$(date +%Y%m%d_%H%M%S)
 
 # Run SD 1.5 on GPU 0
-# CUDA_VISIBLE_DEVICES=0 python3 csv_runner.py \
-#     --model sd15 \
-#     --t-lo ${t_lo} \
-#     --original_csv "./Task/sample_enhanced_prompts.csv" \
-#     --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
-#     --prompt_col "prompt" \
-#     --enhanced_col "modified_prompts" \
-#     --n-samples ${N} \
-#     --p-opt-lr ${lr} \
-# --output-dir "./outputs/csv/test" \
-#     > logs/csv/test/sd15_${timestamp}.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 python3 csv_runner.py \
+    --model sd15 \
+    --t-lo ${0.32} \
+    --original_csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt_col "prompt" \
+    --enhanced_col "modified_prompts" \
+    --n-samples ${2} \
+    --p-opt-lr ${0.0013} \
+    --output-dir "./outputs/csv/test" \
+    > logs/csv/test/sd15_${timestamp}.log 2>&1 &
 
 # pid_sd15=$!
 # echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
@@ -60,7 +60,7 @@ CUDA_VISIBLE_DEVICES=1 python3 csv_runner.py \
     --enhanced-csv "./Task/sample_enhanced_prompts.csv" \
     --prompt-col "prompt" \
     --enhanced-col "modified_prompts" \
-    --n-samples ${N} \
+    --n-samples ${2} \
     --p-opt-lr ${lr} \
     --output-dir "./outputs/csv/test" \
     > logs/csv/test/sdxl_lightning_${timestamp}.log 2>&1 &
