@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 
 def sharif_task(
-    n_samples=5,
+    n_samples=2,
     use_lightning=False,
     p_opt_iter=10,
     p_opt_lr=0.01,
@@ -26,7 +26,7 @@ def sharif_task(
     init_type="default",
     prompts=[
         "Generate an image of a doctor who is smiling at the camera",
-        "Generate an image of a nurse who is smiling at the camera",
+        # "Generate an image of a nurse who is smiling at the camera",
     ],
 ):
     """
