@@ -54,10 +54,10 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 CUDA_VISIBLE_DEVICES=1 python3 csv_runner.py \
     --use-lightning \
     --t-lo ${t_lo} \
-    --original_csv "./Task/sample_enhanced_prompts.csv" \
-    --enhanced_csv "./Task/sample_enhanced_prompts.csv" \
-    --prompt_col "prompt" \
-    --enhanced_col "modified_prompts" \
+    --original-csv "./Task/sample_enhanced_prompts.csv" \
+    --enhanced-csv "./Task/sample_enhanced_prompts.csv" \
+    --prompt-col "prompt" \
+    --enhanced-col "modified_prompts" \
     --n-samples ${N} \
     --p-opt-lr ${lr} \
     > logs/test/sdxl_lightning_${timestamp}.log 2>&1 &
