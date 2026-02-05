@@ -13,7 +13,8 @@ lr=0.01
 # Create logs directory if it doesn't exist
 # -p flag: create parent directories as needed, no error if already exists
 mkdir -p logs
-mkdir -p logs/test
+mkdir -p logs/csv
+mkdir -p logs/csv/test
 
 # Get timestamp for log file names
 # %Y%m%d_%H%M%S gives format like 20240115_143052
