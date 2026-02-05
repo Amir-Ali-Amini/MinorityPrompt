@@ -135,7 +135,7 @@ def run_single_config(
                 prompt=prompt,
                 # modifier=modifier,
                 seed=42 + i + params["seed_plus"],
-                # generate_baseline=True,
+                generate_baseline=True,
                 generate_minority=True,
             )
 
