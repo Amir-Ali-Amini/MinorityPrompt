@@ -39,7 +39,7 @@ DEFAULT_CONFIG = {
     "t_lo": 0.0,
     "init_type": "default",
     "metrics_base_dir": "./metrics_results",
-    "output_dir": "./outputs",
+    "output_dir": "./outputs/csv/main",
     "experiment_name": None,
     "start_from_row": 0,
     "face_model_path": "models/shape_predictor_5_face_landmarks.dat",

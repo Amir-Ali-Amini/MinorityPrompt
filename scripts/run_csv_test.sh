@@ -29,7 +29,8 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 #     --enhanced_col "modified_prompts" \
 #     --n-samples ${N} \
 #     --p-opt-lr ${lr} \
-#     > logs/test/sd15_${timestamp}.log 2>&1 &
+--output-dir "./outputs/csv/test" \
+#     > logs/csv/test/sd15_${timestamp}.log 2>&1 &
 
 # pid_sd15=$!
 # echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
@@ -44,7 +45,8 @@ timestamp=$(date +%Y%m%d_%H%M%S)
 #     --enhanced_col "modified_prompts" \
 #     --n-samples ${N} \
 #     --p-opt-lr ${lr} \
-#     > logs/test/sd20_${timestamp}.log 2>&1 &
+--output-dir "./outputs/csv/test" \
+#     > logs/csv/test/sd20_${timestamp}.log 2>&1 &
 
 # # Store the process ID of the SD 2.0 job
 # pid_sd20=$!
@@ -60,7 +62,8 @@ CUDA_VISIBLE_DEVICES=1 python3 csv_runner.py \
     --enhanced-col "modified_prompts" \
     --n-samples ${N} \
     --p-opt-lr ${lr} \
-    > logs/test/sdxl_lightning_${timestamp}.log 2>&1 &
+    --output-dir "./outputs/csv/test" \
+    > logs/csv/test/sdxl_lightning_${timestamp}.log 2>&1 &
 
 # Store the process ID of the SDXL Lightning job
 pid_sdxl=$!
@@ -68,14 +71,14 @@ echo "Started SDXL Lightning on GPU 1 (PID: ${pid_sdxl})"
 
 # echo ""
 # echo "Logs are being written to:"
-# echo "  - logs/test/sd15_${timestamp}.log"
-# echo "  - logs/test/sd20_${timestamp}.log"
-# echo "  - logs/test/sdxl_lightning_${timestamp}.log"
+# echo "  - logs/csv/test/sd15_${timestamp}.log"
+# echo "  - logs/csv/test/sd20_${timestamp}.log"
+# echo "  - logs/csv/test/sdxl_lightning_${timestamp}.log"
 # echo ""
 # echo "To monitor logs in real-time:"
-# echo "  tail -f logs/test/sd15_${timestamp}.log"
-# echo "  tail -f logs/test/sd20_${timestamp}.log"
-# echo "  tail -f logs/test/sdxl_lightning_${timestamp}.log"
+# echo "  tail -f logs/csv/test/sd15_${timestamp}.log"
+# echo "  tail -f logs/csv/test/sd20_${timestamp}.log"
+# echo "  tail -f logs/csv/test/sdxl_lightning_${timestamp}.log"
 # echo ""
 
 # Wait for all processes to complete
