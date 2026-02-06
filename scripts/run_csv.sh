@@ -2,7 +2,7 @@
 
 # Prompt optimization parameters
 t_lo=0.0 
-N=10
+N=20
 lr=0.01
 
 # "original-csv": "sample_original_prompts.csv",
@@ -20,21 +20,21 @@ mkdir -p logs/csv/main
 # %Y%m%d_%H%M%S gives format like 20240115_143052
 timestamp=$(date +%Y%m%d_%H%M%S)
 
-Run SD 1.5 on GPU 0
-CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
-    --model sd15 \
-    --t-lo 0.32 \
-    --original-csv "./Task/original_prompts.csv" \
-    --enhanced-csv "./Task/original_prompts.csv" \
-    --prompt-col "prompt" \
-    --enhanced-col "modified_prompts" \
-    --n-samples ${N} \
-    --p-opt-lr 0.0013 \
-    --output-dir "./outputs/csv/main" \
-    > logs/csv/main/sd15_${timestamp}.log 2>&1 &
+# Run SD 1.5 on GPU 0
+# CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
+#     --model sd15 \
+#     --t-lo 0.32 \
+#     --original-csv "./Task/original_prompts.csv" \
+#     --enhanced-csv "./Task/original_prompts.csv" \
+#     --prompt-col "prompt" \
+#     --enhanced-col "modified_prompts" \
+#     --n-samples ${N} \
+#     --p-opt-lr 0.0013 \
+#     --output-dir "./outputs/csv/main" \
+#     > logs/csv/main/sd15_${timestamp}.log 2>&1 &
 
-pid_sd15=$!
-echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
+# pid_sd15=$!
+# echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 
 # Run SD 2.0 on GPU 1
 # CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
