@@ -564,6 +564,13 @@ def main():
             evaluator.print_comparison(
                 final_results["baseline"], final_results["modified"]
             )
+        if "minority" in final_results and "modified" in final_results:
+            print("\n" + "=" * 80)
+            print("MINORITY vs MODIFIED")
+            print("=" * 80)
+            evaluator.print_comparison(
+                final_results["minority"], final_results["modified"]
+            )
     except Exception as e:
         logging.error(f"  Comparison printing failed: {e}")
 
