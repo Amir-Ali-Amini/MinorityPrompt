@@ -54,21 +54,37 @@ echo "Started SD 1.5 on GPU 0 (PID: ${pid_sd15})"
 # echo "Started SD 2.0 on GPU 1 (PID: ${pid_sd20})"
 
 # --use-lightning flag sets model="sdxl_lightning", method="ddim_lightning", NFE=4, cfg_guidance=1.0
-# CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
-#     --use-lightning \
-#     --t-lo ${t_lo} \
-#     --original-csv "./Task/original_prompts.csv" \
-#     --enhanced-csv "./Task/original_prompts.csv" \
-#     --prompt-col "prompt" \
-#     --enhanced-col "modified_prompts" \
-#     --n-samples ${N} \
-#     --p-opt-lr ${lr} \
-#     --output-dir "./outputs/csv/main" \
-#     > logs/csv/main/sdxl_lightning_${timestamp}.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 python csv_runner.py \
+    --use-lightning \
+    --t-lo ${t_lo} \
+    --original-csv "./Task/original_prompts.csv" \
+    --enhanced-csv "./Task/original_prompts.csv" \
+    --prompt-col "prompt" \
+    --enhanced-col "modified_prompts" \
+    --n-samples ${N} \
+    --p-opt-lr 0.05 \
+    --output-dir "./outputs/csv/main" \
+    > logs/csv/main/sdxl_lightning_${timestamp}.log 2>&1 &
 
-# # Store the process ID of the SDXL Lightning job
-# pid_sdxl=$!
-# echo "Started SDXL Lightning on GPU 1 (PID: ${pid_sdxl})"
+# Store the process ID of the SDXL Lightning job
+pid_sdxl=$!
+echo "Started SDXL Lightning on GPU 1 (PID: ${pid_sdxl})"
+
+CUDA_VISIBLE_DEVICES=0 python csv_runner.py \
+    --model sdxl \
+    --t-lo ${t_lo} \
+    --original-csv "./Task/original_prompts.csv" \
+    --enhanced-csv "./Task/original_prompts.csv" \
+    --prompt-col "prompt" \
+    --enhanced-col "modified_prompts" \
+    --n-samples ${N} \
+    --p-opt-lr ${lr} \
+    --output-dir "./outputs/csv/main" \
+    > logs/csv/main/sdxl_${timestamp}.log 2>&1 &
+
+# Store the process ID of the SDXL Lightning job
+pid_sdxl=$!
+echo "Started SDXL on GPU 0 (PID: ${pid_sdxl})"
 
 # echo ""
 # echo "Logs are being written to:"
